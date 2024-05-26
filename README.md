@@ -97,7 +97,65 @@ void loop() {
 ```
 
 ## Documentation
-For detailed documentation of available functions and their usage, please refer to the HTL_onboard.h header file.
+
+### HTL_onboard Class
+
+#### Public Methods
+
+- `HTL_onboard()`
+  - Constructor for the HTL_onboard class.
+
+- `void begin()`
+  - Initializes the HTL_onboard library. Sets up pin modes for all necessary pins.
+
+- `void writeHex(int8_t hexNumber)`
+  - Writes a hexadecimal number to the HEX display.
+  - `hexNumber`: The hexadecimal number to display (-15 to 15).
+
+- `void writeInt(int8_t intNumber)`
+  - Writes an integer to the HEX display.
+  - `intNumber`: The integer number to display (-19 to 19).
+
+- `void writeBinary(int binValue)`
+  - Writes a binary value to the LED stripe.
+  - `binValue`: The binary value to display (0 to 1023).
+
+- `void setLED(int pin)`
+  - Sets a specific LED on the LED stripe.
+  - `pin`: The pin number of the LED to set (0 to 9).
+
+- `void clearLED(int pin)`
+  - Clears a specific LED on the LED stripe. This function turns off the specified LED by setting its corresponding pin to HIGH.
+  - `pin`: The pin number of the LED to clear (0 to 9).
+
+- `void clearStripe()`
+  - Clears all LEDs on the LED stripe (turns them off).
+
+- `void setRGB(uint8_t red, uint8_t green, uint8_t blue)`
+  - Sets the RGB LED to the specified color.
+  - `red`: The red intensity (0 to 255).
+  - `green`: The green intensity (0 to 255).
+  - `blue`: The blue intensity (0 to 255).
+
+- `int readSwitchState()`
+  - Reads the state of the switches.
+  - Returns 2 if switch 2 is pressed, 3 if switch 3 is pressed, 1 if both switches are pressed, and 0 if no switch is pressed.
+
+- `int readPot()`
+  - Reads the potentiometer value.
+  - Returns the analog value from the potentiometer (0-1023).
+
+- `void setMode(int mode, bool state)`
+  - Sets the mode of the HTL_onboard.
+  - `mode`: The mode to set (0 for HEX, 1 for LED stripe, 2 for RGB).
+  - `state`: The state to set the mode to (true for active, false for inactive).
+
+- `void cfgSwitches(int switch1Threshold, int switch2Threshold, int switch12Min, int switch12Max)`
+  - Configures the switch thresholds.
+  - `switch1Threshold`: Threshold for switch 1.
+  - `switch2Threshold`: Threshold for switch 2.
+  - `switch12Min`: Minimum threshold for both switches pressed.
+  - `switch12Max`: Maximum threshold for both switches pressed.
 
 ## Author
 Tobias Weich, 2024
