@@ -116,6 +116,16 @@ public:
      */
     void setMode(int mode, bool state);
 
+    /**
+     * @brief Configures the switch thresholds.
+     * 
+     * @param switch1Threshold Threshold for switch 1.
+     * @param switch2Threshold Threshold for switch 2.
+     * @param switch12Min Minimum threshold for both switches pressed.
+     * @param switch12Max Maximum threshold for both switches pressed.
+     */
+    void cfgSwitches(int switch1Threshold, int switch2Threshold, int switch12Min, int switch12Max);
+
 private:
     /**
      * @brief Sets the pins of the LED-Stripe based on the provided value.
@@ -127,6 +137,11 @@ private:
     const uint8_t pinMapping[10] = {0, 1, 2, 3, 4, 5, 6, 8, 7, 9}; // abcdefgNhi
     const uint8_t pinMappingStripe[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     const uint8_t selectPins[3] = {10, 11, 12}; // HEX-Panel, LED-Stripe, RGB-LED
+
+    int switch1Threshold = 400;
+    int switch2Threshold = 690;
+    int switch12Min = 500;
+    int switch12Max = 520;
 };
 
 #endif

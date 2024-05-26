@@ -2,6 +2,8 @@
 
 #define SHOW_HEX true
 
+HTL_onboard switchReader;
+
 void setup() {
     Serial.begin(9600);
     switchReader.begin();
@@ -21,6 +23,8 @@ void loop() {
     } else {
         Serial.println("No switches are active");
     }
+
+    Serial.println(analogRead(A1));
 
     delay(1000); // Delay for 1 second
 }

@@ -22,11 +22,6 @@
 #define MODE_STRIPE 1
 #define MODE_RGB 2
 
-#define SWITCH_1_THRESHOLD 400 // Define threshold for switch 1 (adjust as needed)
-#define SWITCH_2_THRESHOLD 600 // Define threshold for switch 2 (adjust as needed)
-#define SWITCH_12_MIN 500      // Define minimum for switch 12 (adjust as needed)
-#define SWITCH_12_MAX 520      // Define maximum for switch 12 (adjust as needed)
-
 // Segment mapping for hexadecimal digits (0-9, A-F)
 // Bit order: abcdefg (g is the LSB)
 const uint8_t segmentMap[16] = {
@@ -60,6 +55,7 @@ void HTL_onboard::begin() {
         pinMode(selectPins[i], OUTPUT);
     }
 
+    pinMode(A0, INPUT);
     pinMode(A1, INPUT);
 
     for (int i = 0; i < 3; i++) {
@@ -194,12 +190,12 @@ int HTL_onboard::readSwitchState() {
     int analogValue = analogRead(A1);
 
     // Check the voltage level and determine the switch state
-    if (analogValue < SWITCH_1_THRESHOLD) {
+    if (analogValue < switch1Threshold) {
         return 3; // Switch 1 is active
-    } else if (analogValue > SWITCH_2_THRESHOLD) {
-        return 2; // Switch 2 is active
-    } else if (analogValue > SWITCH_12_MIN && analogValue < SWITCH_12_MAX) {
+    } else if (analogValue > switch12Min && analogValue < switch12Max) {
         return 1;
+    } else if (analogValue < switch2Threshold) {
+        return 2; // Switch 2 is active
     } else {
         return 0; // Both switches are inactive
     }
@@ -207,5 +203,12 @@ int HTL_onboard::readSwitchState() {
 
 int HTL_onboard::readPot() {
     return analogRead(A0);
+}
+
+void HTL_onboard::cfgSwitches(int switch1Threshold, int switch2Threshold, int switch12Min, int switch12Max) {
+    this->switch1Threshold = switch1Threshold;
+    this->switch2Threshold = switch2Threshold;
+    this->switch12Min = switch12Min;
+    this->switch12Max = switch12Max;
 }
 
