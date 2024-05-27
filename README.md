@@ -135,6 +135,7 @@ After setting up multiplexing, you need to regularly call the `updateMultiplex()
 void loop() {
     onboard.updateMultiplex();
 }
+```
 
 ## Documentation
 
