@@ -15,6 +15,19 @@ readSwitchState	KEYWORD2
 readPot		KEYWORD2
 setMode		KEYWORD2
 clearLED	KEYWORD2
+setHexMode	KEYWORD2
+getHexMode	KEYWORD2
+setHexNumber	KEYWORD2
+getHexNumber	KEYWORD2
+setRed		KEYWORD2
+setGreen	KEYWORD2
+setBlue		KEYWORD2
+getRed		KEYWORD2
+getGreen	KEYWORD2
+getBlue		KEYWORD2
+setLedStripeValue	KEYWORD2
+getLedStripeValue	KEYWORD2
+cfgSwitches	KEYWORD2
 
 # Constants
 MODE_HEX	KEYWORD3

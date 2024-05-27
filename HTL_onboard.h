@@ -21,6 +21,12 @@
 
 #include <Arduino.h>
 
+#define MODE_HEX 0
+#define MODE_STRIPE 1
+#define MODE_RGB 2
+#define HEX_MODE_HEX 0
+#define HEX_MODE_DEC 1
+
 /**
  * @brief Library for controlling onboard hardware components including HEX display, LED stripe, and RGB LED.
  * 
@@ -120,11 +126,118 @@ public:
      * @brief Configures the switch thresholds.
      * 
      * @param switch1Threshold Threshold for switch 1.
-     * @param switch2Threshold Threshold for switch 2.
-     * @param switch12Min Minimum threshold for both switches pressed.
-     * @param switch12Max Maximum threshold for both switches pressed.
+     * @param switchNoneThreshold Threshold for no switch pressed.
+     * @param switch12Threshold Threshold for both switches pressed.
      */
-    void cfgSwitches(int switch1Threshold, int switch2Threshold, int switch12Min, int switch12Max);
+    void cfgSwitches(int switch1Threshold, int switchNoneThreshold, int switch12Threshold);
+
+   /**
+    * @brief Updates all displays. Call this function in loop()
+    */
+    void updateMultiplex();
+
+   /**
+    * @brief Sets the modes which are used to display in multiplex operation.
+    *
+    * @param modes array of modes that are displayed in Multiplex mode. (0 for HEX, 1 for LED stripe, 2 for RGB)
+    */
+    void setModesMultiplex(const int modes[], int size);
+    
+    /**
+    * @brief Sets the interval for multiplexing between different display modes.
+    *
+    * This function sets the interval, in milliseconds, for how frequently the
+    * system cycles through the different active display modes (HEX, LED stripe, RGB).
+    * The provided interval must be non-negative.
+    *
+    * @param multiplexInterval The time interval in milliseconds for multiplexing.
+    *                          Must be a non-negative integer.
+    */
+    void setMultiplexInterval(int multiplexInterval);
+
+    /**
+     * @brief Sets the display mode of the HEX display.
+     * 
+     * @param mode The mode to set (0 for HEX, 1 for Decimal).
+     */
+    void setHexMode(int mode);
+
+    /**
+     * @brief Gets the current display mode of the HEX display.
+     * 
+     * @return int The current display mode (0 for HEX, 1 for Decimal).
+     */
+    int getHexMode();
+
+    /**
+     * @brief Sets the number to be displayed on the HEX display.
+     * 
+     * @param number The number to display (-15 to 15 in HEX mode, -19 to 19 in Decimal mode).
+     */
+    void setHexNumber(int number);
+
+    /**
+     * @brief Gets the number currently displayed on the HEX display.
+     * 
+     * @return int The number displayed on the HEX display.
+     */
+    int getHexNumber();
+
+    /**
+     * @brief Sets the intensity of the red component of the RGB LED.
+     * 
+     * @param r The intensity of the red component (0 to 255).
+     */
+    void setRed(uint8_t r);
+
+    /**
+     * @brief Sets the intensity of the green component of the RGB LED.
+     * 
+     * @param g The intensity of the green component (0 to 255).
+     */
+    void setGreen(uint8_t g);
+
+    /**
+     * @brief Sets the intensity of the blue component of the RGB LED.
+     * 
+     * @param b The intensity of the blue component (0 to 255).
+     */
+    void setBlue(uint8_t b);
+
+    /**
+     * @brief Gets the intensity of the red component of the RGB LED.
+     * 
+     * @return uint8_t The intensity of the red component (0 to 255).
+     */
+    uint8_t getRed();
+
+    /**
+     * @brief Gets the intensity of the green component of the RGB LED.
+     * 
+     * @return uint8_t The intensity of the green component (0 to 255).
+     */
+    uint8_t getGreen();
+
+    /**
+     * @brief Gets the intensity of the blue component of the RGB LED.
+     * 
+     * @return uint8_t The intensity of the blue component (0 to 255).
+     */
+    uint8_t getBlue();
+
+    /**
+     * @brief Sets the value of the LED stripe.
+     * 
+     * @param value The value to set (0 to 1023).
+     */
+    void setLedStripeValue(int value);
+
+    /**
+     * @brief Gets the current value of the LED stripe.
+     * 
+     * @return int The current value of the LED stripe (0 to 1023).
+     */
+    int getLedStripeValue();
 
 private:
     /**
@@ -138,10 +251,20 @@ private:
     const uint8_t pinMappingStripe[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     const uint8_t selectPins[3] = {10, 11, 12}; // HEX-Panel, LED-Stripe, RGB-LED
 
-    int switch1Threshold = 400;
-    int switch2Threshold = 690;
-    int switch12Min = 500;
-    int switch12Max = 520;
+    // Note that switch 1 is S2 and switch 2 is S3
+    int switch1Threshold = 700;
+    int switchNoneThreshold = 900;
+    int switch12Threshold = 500;
+
+    unsigned long lastMultiplexTime = 0;
+    int currentMode = 0; // Start with HEX display
+    bool modesActive[3] = {false, false, false}; // Track active modes
+    int multiplexInterval = 1;
+
+    int HEX_mode = 0; // 0: display as HEX, 1: display as Decimal
+    int hexNumber = 0; // Variable to hold the current number for HEX display
+    uint8_t red = 0, green = 0, blue = 0; // Variables for RGB LED
+    int ledStripeValue = 0; // Variable for LED stripe
 };
 
 #endif

@@ -18,10 +18,6 @@
 
 #include "HTL_onboard.h"
 
-#define MODE_HEX 0
-#define MODE_STRIPE 1
-#define MODE_RGB 2
-
 // Segment mapping for hexadecimal digits (0-9, A-F)
 // Bit order: abcdefg (g is the LSB)
 const uint8_t segmentMap[16] = {
@@ -56,7 +52,7 @@ void HTL_onboard::begin() {
     }
 
     pinMode(A0, INPUT);
-    pinMode(A1, INPUT);
+    pinMode(A1, INPUT_PULLUP);
 
     for (int i = 0; i < 3; i++) {
         setMode(i, false);
@@ -121,6 +117,8 @@ void HTL_onboard::setMode(int mode, bool state) {
     // Set Pins to Output
     for (int i = 0; i < 10; i++) {
         pinMode(pinMapping[i], OUTPUT);
+        // Set Pins to Off (HIGH)
+        digitalWrite(pinMapping[i], HIGH);
     }
 
     // Ensure the mode is within the bounds of selectPins array
@@ -190,14 +188,14 @@ int HTL_onboard::readSwitchState() {
     int analogValue = analogRead(A1);
 
     // Check the voltage level and determine the switch state
-    if (analogValue < switch1Threshold) {
-        return 3; // Switch 1 is active
-    } else if (analogValue > switch12Min && analogValue < switch12Max) {
-        return 1;
-    } else if (analogValue < switch2Threshold) {
-        return 2; // Switch 2 is active
-    } else {
+    if (analogValue > switchNoneThreshold) {
         return 0; // Both switches are inactive
+    } else if (analogValue > switch1Threshold) {
+        return 2; // Switch 2 is active
+    } else if (analogValue > switch12Threshold) {
+        return 1; // Both switches are active
+    } else {
+        return 3; // Switch 3 is active
     }
 }
 
@@ -205,10 +203,132 @@ int HTL_onboard::readPot() {
     return analogRead(A0);
 }
 
-void HTL_onboard::cfgSwitches(int switch1Threshold, int switch2Threshold, int switch12Min, int switch12Max) {
+void HTL_onboard::cfgSwitches(int switch1Threshold, int switchNoneThreshold, int switch12Threshold) {
     this->switch1Threshold = switch1Threshold;
-    this->switch2Threshold = switch2Threshold;
-    this->switch12Min = switch12Min;
-    this->switch12Max = switch12Max;
+    this->switchNoneThreshold = switchNoneThreshold;
+    this->switch12Threshold = switch12Threshold;
 }
 
+void HTL_onboard::updateMultiplex() {
+    unsigned long currentTime = millis();
+    
+    if (currentTime - lastMultiplexTime >= multiplexInterval) {
+        lastMultiplexTime = currentTime;
+
+        // Check if any mode is active
+        bool flag = false;
+        for (int i = 0; i < 3; i++) {
+            if (modesActive[i]) {
+                flag = true;
+                break;
+            }
+        }
+        if (!flag) {
+            return;
+        }
+
+        // Cycle through active display modes
+        int nextMode = currentMode;
+        do {
+            nextMode += 1;
+	    if (nextMode > 2) {
+		nextMode = 0;
+	    }
+        } while (!modesActive[nextMode]);
+
+        // Turn off all displays before switching
+        setMode(MODE_HEX, false);
+        setMode(MODE_STRIPE, false);
+        setMode(MODE_RGB, false);
+
+        switch (nextMode) {
+            case MODE_HEX:
+                HEX_mode == 0 ? writeHex(hexNumber) : writeInt(hexNumber); // Update with current hex number
+                break;
+            case MODE_RGB:
+                setRGB(red, green, blue); // Update with current RGB values
+                break;
+            case MODE_STRIPE:
+                writeBinary(ledStripeValue); // Update with current LED stripe value
+                break;
+        }
+
+        // Update the currentMode to the next active mode
+        currentMode = nextMode;
+    }
+}
+
+void HTL_onboard::setModesMultiplex(const int modes[], int size) {
+    // Reset all modes to inactive
+    for (int i = 0; i < 3; i++) {
+        modesActive[i] = false;
+    }
+    
+    // Set the specified modes to active
+    for (int i = 0; i < size; i++) {
+        int mode = modes[i];
+        if (mode >= 0 && mode < 3) {
+            modesActive[mode] = true;
+        }
+    }
+}
+
+void HTL_onboard::setMultiplexInterval(int multiplexInterval) {
+    if (multiplexInterval >= 0) {
+	this -> multiplexInterval = multiplexInterval;
+    }
+}
+
+void HTL_onboard::setHexMode(int mode) {
+    if (mode == 0 || mode == 1) {
+        HEX_mode = mode;
+    }
+}
+
+int HTL_onboard::getHexMode() {
+    return HEX_mode;
+}
+
+void HTL_onboard::setHexNumber(int number) {
+    if (HEX_mode == 0) {
+        hexNumber = constrain(number, -15, 15);
+    } else {
+        hexNumber = constrain(number, -19, 19);
+    }
+}
+
+int HTL_onboard::getHexNumber() {
+    return hexNumber;
+}
+
+void HTL_onboard::setRed(uint8_t r) {
+    red = constrain(r, 0, 255);
+}
+
+void HTL_onboard::setGreen(uint8_t g) {
+    green = constrain(g, 0, 255);
+}
+
+void HTL_onboard::setBlue(uint8_t b) {
+    blue = constrain(b, 0, 255);
+}
+
+uint8_t HTL_onboard::getRed() {
+    return red;
+}
+
+uint8_t HTL_onboard::getGreen() {
+    return green;
+}
+
+uint8_t HTL_onboard::getBlue() {
+    return blue;
+}
+
+void HTL_onboard::setLedStripeValue(int value) {
+    ledStripeValue = constrain(value, 0, 1023);
+}
+
+int HTL_onboard::getLedStripeValue() {
+    return ledStripeValue;
+}

@@ -1,7 +1,5 @@
 #include <HTL_onboard.h>
 
-#define SHOW_HEX true
-
 HTL_onboard switchReader;
 
 void setup() {
