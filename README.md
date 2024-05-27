@@ -96,6 +96,150 @@ void loop() {
 }
 ```
 
+## Multiplex Mode Usage
+
+The HTL_onboard library supports multiplexing between different display modes, including HEX display, LED stripe, and RGB LED. Multiplexing allows you to cycle through these modes in a time-sharing manner, enabling multiple outputs to be shown on a single display sequentially. This section will guide you on how to use the multiplex mode.
+
+### Step-by-Step Guide
+
+1. **Initialization**
+   Initialize the HTL_onboard library in your `setup()` function. This sets up the pin modes for all necessary pins.
+
+    ```cpp
+    HTL_onboard onboard;
+
+    void setup() {
+        onboard.begin();
+    }
+    ```
+
+2. **Set Active Modes for Multiplexing**
+   Define which modes you want to include in the multiplexing operation. Use the `setModesMultiplex` function to specify the active modes. The modes should be specified using their corresponding constants: `MODE_HEX`, `MODE_STRIPE`, and `MODE_RGB`.
+
+    ```cpp
+    void setup() {
+        onboard.begin();
+        int activeModes[] = {MODE_HEX, MODE_RGB, MODE_STRIPE};
+        onboard.setModesMultiplex(activeModes, 3); // Activate HEX, RGB, and LED stripe modes
+    }
+    ```
+
+3. **Set Multiplex Interval**
+   Optionally, you can set the interval for multiplexing between different modes using the `setMultiplexInterval` function. This interval is specified in milliseconds and determines how frequently the display switches between active modes.
+
+    ```cpp
+    void setup() {
+        onboard.begin();
+        int activeModes[] = {MODE_HEX, MODE_RGB, MODE_STRIPE};
+        onboard.setModesMultiplex(activeModes, 3);
+        onboard.setMultiplexInterval(100); // Set multiplex interval to 100 milliseconds
+    }
+    ```
+
+4. **Update Multiplex in the Loop**
+   Ensure that you call the `updateMultiplex` function inside your `loop()` function. This function handles the actual switching between the modes based on the specified interval.
+
+    ```cpp
+    void loop() {
+        onboard.updateMultiplex();
+        // Add any other code that needs to run continuously
+    }
+    ```
+
+5. **Updating Display Values**
+   Update the values for the HEX display, RGB LED, and LED stripe in your `loop()` function or based on specific events. These values will be shown according to the active multiplex mode.
+
+    ```cpp
+    void loop() {
+        unsigned long currentTime = millis();
+
+        if (currentTime - lastHexUpdateTime >= HEX_UPDATE_INTERVAL) {
+            lastHexUpdateTime = currentTime;
+            hexNumber++;
+            if (hexNumber > 15) hexNumber = -15; // Reset hexNumber after it exceeds the range
+        }
+
+        if (currentTime - lastRgbUpdateTime >= RGB_UPDATE_INTERVAL) {
+            lastRgbUpdateTime = currentTime;
+            red += 5;
+            green += 3;
+            blue += 7;
+            if (red > 255) red = 0;
+            if (green > 255) green = 0;
+            if (blue > 255) blue = 0;
+        }
+
+        if (currentTime - lastStripeUpdateTime >= STRIPE_UPDATE_INTERVAL) {
+            lastStripeUpdateTime = currentTime;
+            ledStripeValue++;
+            if (ledStripeValue > 1023) ledStripeValue = 0; // Reset ledStripeValue after it exceeds the range
+        }
+
+        onboard.updateMultiplex();
+    }
+    ```
+
+### Example Code
+
+Below is a complete example that demonstrates how to set up and use multiplex mode:
+
+```cpp
+#include <HTL_onboard.h>
+
+#define MODE_HEX 0
+#define MODE_STRIPE 1
+#define MODE_RGB 2
+
+#define HEX_UPDATE_INTERVAL 1000 // Interval for updating HEX display in milliseconds
+#define RGB_UPDATE_INTERVAL 50   // Interval for updating RGB LED in milliseconds
+#define STRIPE_UPDATE_INTERVAL 200 // Interval for updating LED stripe in milliseconds
+
+HTL_onboard onboard;
+
+unsigned long lastHexUpdateTime = 0;
+unsigned long lastRgbUpdateTime = 0;
+unsigned long lastStripeUpdateTime = 0;
+
+int hexNumber = 0; // Variable to hold the current number for HEX display
+uint8_t red = 0, green = 0, blue = 0; // Variables for RGB LED
+int ledStripeValue = 0; // Variable for LED stripe
+
+void setup() {
+    onboard.begin();
+    int activeModes[] = {MODE_HEX, MODE_RGB, MODE_STRIPE};
+    onboard.setModesMultiplex(activeModes, 3); // Activate HEX, RGB, and LED stripe modes
+    onboard.setMultiplexInterval(100); // Set multiplex interval to 100 milliseconds
+}
+
+void loop() {
+    unsigned long currentTime = millis();
+
+    if (currentTime - lastHexUpdateTime >= HEX_UPDATE_INTERVAL) {
+        lastHexUpdateTime = currentTime;
+        hexNumber++;
+        if (hexNumber > 15) hexNumber = -15; // Reset hexNumber after it exceeds the range
+    }
+
+    if (currentTime - lastRgbUpdateTime >= RGB_UPDATE_INTERVAL) {
+        lastRgbUpdateTime = currentTime;
+        red += 5;
+        green += 3;
+        blue += 7;
+        if (red > 255) red = 0;
+        if (green > 255) green = 0;
+        if (blue > 255) blue = 0;
+    }
+
+    if (currentTime - lastStripeUpdateTime >= STRIPE_UPDATE_INTERVAL) {
+        lastStripeUpdateTime = currentTime;
+        ledStripeValue++;
+        if (ledStripeValue > 1023) ledStripeValue = 0; // Reset ledStripeValue after it exceeds the range
+    }
+
+    onboard.updateMultiplex();
+}
+```
+
 ## Documentation
 
 ### HTL_onboard Class
@@ -156,6 +300,20 @@ void loop() {
   - `switch2Threshold`: Threshold for switch 2.
   - `switch12Min`: Minimum threshold for both switches pressed.
   - `switch12Max`: Maximum threshold for both switches pressed.
+
+- `void updateMultiplex()`
+  - Updates all displays. Call this function in loop().
+
+- `void setModesMultiplex(const int modes[], int size)`
+  - Sets the modes which are used to display in multiplex operation.
+  - `modes`: Array of modes that are displayed in Multiplex mode (0 for HEX, 1 for LED stripe, 2 for RGB).
+  - `size`: Size of the modes array.
+
+- `void setMultiplexInterval(int multiplexInterval)`
+  - Sets the interval for multiplexing between different display modes.
+  - This function sets the interval, in milliseconds, for how frequently the system cycles through the different active display modes (HEX, LED stripe, RGB).
+  - The provided interval must be non-negative.
+  - `multiplexInterval`: The time interval in milliseconds for multiplexing. Must be a non-negative integer.
 
 ## Author
 Tobias Weich, 2024
