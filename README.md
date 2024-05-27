@@ -191,11 +191,10 @@ void loop() {
   - `mode`: The mode to set (0 for HEX, 1 for LED stripe, 2 for RGB).
   - `state`: The state to set the mode to (true for active, false for inactive).
 
-- `void cfgSwitches(int switch1Threshold, int switch2Threshold, int switch12Threshold)`
-  - Configures the switch thresholds.
-  - Sets the thresholds for switch 1, switch 2, and both switches pressed.
+- `void cfgSwitches(int switch1Threshold, int switchNoneThreshold, int switch12Threshold)`
+  - Configures the switch thresholds used for checking which switch was pressed.
   - `switch1Threshold`: Threshold for switch 1.
-  - `switch2Threshold`: Threshold for switch 2.
+  - `switchNoneThreshold`: Threshold for no switch pressed.
   - `switch12Threshold`: Threshold for both switches pressed.
 
 - `void updateMultiplex()`
