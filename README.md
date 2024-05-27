@@ -2,8 +2,18 @@
 The HTL_onboard library provides functions to control the onboard hardware components of the HTL Uno development board, including the HEX display, LED stripe, RGB LED, switches, and potentiometer.
 
 ## Installation
-Download the HTL_onboard library (.zip).
-Add the library to your Arduino IDE by navigating to Sketch > Include Library > Add .ZIP Library... and selecting the downloaded ZIP file.
+### Installation via Arduino Library Manager
+1. Open the Arduino IDE.
+2. Navigate to **Sketch > Include Library > Manage Libraries...** This will open the Library Manager.
+3. In the search bar, type "HTL_onboard" and press Enter.
+4. From the search results, locate the "HTL_onboard" library.
+5. Click on the "Install" button to install the library.
+6. Once installation is complete, close the Library Manager.
+7. You can now include the HTL_onboard library in your sketches by typing "#include <HTL_onboard.h>."
+
+### Installation via .zip File
+1. Download the HTL_onboard library (.zip) from the [HTL_onboard github repository](https://github.com/Tobsoft/HTL_onboard).
+2. Add the library to your Arduino IDE by navigating to Sketch > Include Library > Add .ZIP Library... and selecting the downloaded ZIP file.
 
 ## Usage
 ## Initialization
