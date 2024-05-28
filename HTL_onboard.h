@@ -27,6 +27,22 @@
 #define HEX_MODE_HEX 0
 #define HEX_MODE_DEC 1
 
+// Define Pin Names for Breakout Pins(B)
+// B1 is Pin 1 of X17
+/*  
+    B1 B2 B3 B4 B5 B6
+    .  .  .  .  .  . 
+   |- X17 -||- X16 -|
+    1  2  3  1  2  3
+*/
+
+#define B1 GND
+#define B2 2
+#define B3 3
+#define B4 4
+#define B5 5
+#define B6 6
+
 /**
  * @brief Library for controlling onboard hardware components including HEX display, LED stripe, and RGB LED.
  * 

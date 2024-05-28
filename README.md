@@ -147,6 +147,21 @@ void loop() {
 }
 ```
 
+**Note:** In order to change values in multiplex mode, it is recommended to **use the setters** provided by the library, e.g., use setHexNumber() instead of writeHex(). This ensures that the values are correctly updated and displayed within the multiplexing framework.
+```cpp
+// Correct way to set HEX number in multiplex mode
+onboard.setHexNumber(10);
+
+// Correct way to set LED stripe value in multiplex mode
+onboard.setLedStripeValue(512);
+
+// Correct way to set RGB values in multiplex mode
+onboard.setRed(255);
+onboard.setGreen(255);
+onboard.setBlue(255);
+```
+
+
 ## Documentation
 
 ### HTL_onboard Class

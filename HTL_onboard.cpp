@@ -61,10 +61,13 @@ void HTL_onboard::begin() {
 
 void HTL_onboard::writeHex(int8_t hexNumber) {
     setMode(MODE_HEX, true);
+    setHexMode(HEX_MODE_HEX);
 
     if (hexNumber < -15 || hexNumber > 15) {
         return;  // Out of range
     }
+
+    this->hexNumber = hexNumber;
 
     if (hexNumber < 0) {
         digitalWrite(pinMapping[7], LOW);
@@ -82,10 +85,13 @@ void HTL_onboard::writeHex(int8_t hexNumber) {
 
 void HTL_onboard::writeInt(int8_t intNumber) {
     setMode(MODE_HEX, true);
+    setHexMode(HEX_MODE_DEC);
 
     if (intNumber < -19 || intNumber > 19) {
         return;  // Out of range
     }
+
+    hexNumber = intNumber;
 
     if (intNumber < 0) {
         digitalWrite(pinMapping[7], LOW);
@@ -130,6 +136,14 @@ void HTL_onboard::setMode(int mode, bool state) {
 void HTL_onboard::setRGB(uint8_t red, uint8_t green, uint8_t blue) {
     setMode(MODE_RGB, true);
 
+    red = constrain(red, 0, 255);
+    green = constrain(green, 0, 255);
+    blue = constrain(blue, 0, 255);
+    
+    this->red = red;
+    this->green = green;
+    this->blue = blue;
+
     // Set the RGB LED pins to the specified intensity
     analogWrite(5, 255 - red);
     analogWrite(6, 255 - green);
@@ -143,6 +157,8 @@ void HTL_onboard::writeBinary(int binValue) {
     if (binValue < 0 || binValue > 1023) {
         return; // Out of range
     }
+
+    ledStripeValue = binValue;
 
     // Set each LED according to the corresponding bit in binValue
     for (int i = 0; i < 10; i++) {
@@ -160,6 +176,9 @@ void HTL_onboard::setLED(int pin) {
 
     // Set the specified LED pin to LOW (ON)
     digitalWrite(pinMappingStripe[pin], LOW);
+
+    // Update ledStripeValue to reflect the change
+    ledStripeValue |= (1 << pin);
 }
 
 void HTL_onboard::clearLED(int pin) {
@@ -172,6 +191,9 @@ void HTL_onboard::clearLED(int pin) {
 
     // Set the specified LED pin to HIGH (OFF)
     digitalWrite(pinMappingStripe[pin], HIGH);
+
+    // Update ledStripeValue to reflect the change
+    ledStripeValue &= ~(1 << pin);
 }
 
 void HTL_onboard::clearStripe() {
