@@ -5,7 +5,7 @@
 #define MODE_RGB 2
 
 #define HEX_UPDATE_INTERVAL 500 // Interval for updating HEX display in milliseconds
-#define RGB_UPDATE_INTERVAL 500   // Interval for updating RGB LED in milliseconds
+#define RGB_UPDATE_INTERVAL 10   // Interval for updating RGB LED in milliseconds
 #define STRIPE_UPDATE_INTERVAL 20 // Interval for updating LED stripe in milliseconds
 
 HTL_onboard onboard;
@@ -13,6 +13,9 @@ HTL_onboard onboard;
 unsigned long lastHexUpdateTime = 0;
 unsigned long lastRgbUpdateTime = 0;
 unsigned long lastStripeUpdateTime = 0;
+
+int phase = 0;
+int colorIndex = 0;
 
 void setup() {
     onboard.begin();
@@ -52,12 +55,32 @@ void updateHexDisplay() {
 }
 
 void updateRgbValues() {
-    onboard.setRed(onboard.getRed() + 5);
-    onboard.setGreen(onboard.getGreen() + 3);
-    onboard.setBlue(onboard.getBlue() + 7);
-    if (onboard.getRed() > 255) onboard.setRed(0);
-    if (onboard.getGreen() > 255) onboard.setGreen(0);
-    if (onboard.getBlue() > 255) onboard.setBlue(0);
+    switch (phase) {
+        case 0:
+            // Gradient transition from red to green
+            onboard.setRed(255 - colorIndex);
+            onboard.setGreen(colorIndex);
+            onboard.setBlue(0);
+            break;
+        case 1:
+            // Gradient transition from green to blue
+            onboard.setRed(0);
+            onboard.setGreen(255 - colorIndex);
+            onboard.setBlue(colorIndex);
+            break;
+        case 2:
+            // Gradient transition from blue to red
+            onboard.setRed(colorIndex);
+            onboard.setGreen(0);
+            onboard.setBlue(255 - colorIndex);
+            break;
+    }
+
+    colorIndex++;
+    if (colorIndex > 255) {
+        colorIndex = 0;
+        phase = (phase + 1) % 3; // Move to the next phase
+    }
 }
 
 void updateLedStripeValues() {

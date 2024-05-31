@@ -27,6 +27,9 @@
 #define HEX_MODE_HEX 0
 #define HEX_MODE_DEC 1
 
+#define RGB_DELAY 1 // How long to keep the RGB Led on in milliseconds
+                    // WARNING: SETTING THIS TO A HIGH VALUE MAY DECREASE MULTIPLEXING FREQUENCY AND CAUSE FLICKERING IN OTHER MODES!
+
 // Define Pin Names for Breakout Pins(B)
 // B1 is Pin 1 of X17
 /*  

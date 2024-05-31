@@ -269,6 +269,7 @@ void HTL_onboard::updateMultiplex() {
                 break;
             case MODE_RGB:
                 setRGB(red, green, blue); // Update with current RGB values
+                delay(RGB_DELAY);
                 break;
             case MODE_STRIPE:
                 writeBinary(ledStripeValue); // Update with current LED stripe value
