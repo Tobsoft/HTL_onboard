@@ -39,6 +39,144 @@ const uint8_t segmentMap[16] = {
     0b01000111   // F
 };
 
+
+// Segment mapping for hexadecimal digits (0-9, A-F) and some characters
+// Bit order: abcdefg (g is the LSB)
+const uint8_t charMap[128] = {
+    // First 32 characters are unsupported
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    
+    // Start of supported characters
+    0b00000000,  // ' ' (space)
+    0b00000000,  // '!' (unsupported)
+    0b00000000,  // '"' (unsupported)
+    0b00000000,  // '#' (unsupported)
+    0b00000000,  // '$' (unsupported)
+    0b00000000,  // '%' (unsupported)
+    0b00000000,  // '&' (unsupported)
+    0b00000000,  // ''' (unsupported)
+    0b00001110,  // '('
+    0b00011100,  // ')'
+    0b00000000,  // '*' (unsupported)
+    0b00000000,  // '+' (unsupported)
+    0b00000000,  // ',' (unsupported)
+    0b00000001,  // '-'
+    0b00000000,  // '.' (unsupported)
+    0b00000000,  // '/' (unsupported)
+    0b01111110,  // '0'
+    0b00110000,  // '1'
+    0b01101101,  // '2'
+    0b01111001,  // '3'
+    0b00110011,  // '4'
+    0b01011011,  // '5'
+    0b01011111,  // '6'
+    0b01110000,  // '7'
+    0b01111111,  // '8'
+    0b01111011,  // '9'
+    0b00000000,  // ':' (unsupported)
+    0b00000000,  // ';' (unsupported)
+    0b00000000,  // '<' (unsupported)
+    0b00000001,  // '='
+    0b00000000,  // '>' (unsupported)
+    0b01100101,  // '?'
+    0b01101111,  // '@'
+    0b01110111,  // 'A'
+    0b00011111,  // 'b'
+    0b01001110,  // 'C'
+    0b00000000,  // 'D' (unsupported)
+    0b01001111,  // 'E'
+    0b01000111,  // 'F'
+    0b01011110,  // 'G'
+    0b00110111,  // 'H'
+    0b00000110,  // 'I'
+    0b00111100,  // 'J'
+    0b00000000,  // 'K' (unsupported)
+    0b00001110,  // 'L'
+    0b00000000,  // 'M' (unsupported)
+    0b00000000,  // 'N' (unsupported)
+    0b01111110,  // 'O'
+    0b01100111,  // 'P'
+    0b01110011,  // 'Q'
+    0b00000000,  // 'R' (unsupported)
+    0b01011011,  // 'S'
+    0b00000000,  // 'T' (unsupported)
+    0b00111110,  // 'U'
+    0b00000000,  // 'V' (unsupported)
+    0b00000000,  // 'W' (unsupported)
+    0b00000000,  // 'X' (unsupported)
+    0b00000000,  // 'Y' (unsupported)
+    0b00000000,  // 'Z' (unsupported)
+    0b01001110,  // '['
+    0b00000000,  // '\' (unsupported)
+    0b01111000,  // ']'
+    0b00000000,  // '^' (unsupported)
+    0b00001000,  // '_'
+    0b00000000,  // '`' (unsupported)
+    0b01110111,  // 'a'
+    0b00011111,  // 'b'
+    0b01001110,  // 'c'
+    0b00111101,  // 'd'
+    0b01001111,  // 'e'
+    0b01000111,  // 'f'
+    0b00000000,  // 'g' (unsupported)
+    0b00110111,  // 'h'
+    0b00000110,  // 'i'
+    0b00111100,  // 'j'
+    0b00000000,  // 'k' (unsupported)
+    0b00001110,  // 'l'
+    0b00000000,  // 'm' (unsupported)
+    0b00010101,  // 'n'
+    0b01111110,  // 'o'
+    0b01100111,  // 'p'
+    0b01110011,  // 'q'
+    0b00000101,  // 'r'
+    0b01011011,  // 's'
+    0b00001111,  // 't'
+    0b00111110,  // 'u'
+    0b00000000,  // 'v' (unsupported)
+    0b00000000,  // 'w' (unsupported)
+    0b00000000,  // 'x' (unsupported)
+    0b00111011,  // 'y'
+    0b00000000,  // 'z' (unsupported)
+    0b00000000,  // '{' (unsupported)
+    0b00000110,  // '|' (pipe)
+    0b00000000,  // '}' (unsupported)
+    0b00000000,  // '~' (unsupported)
+    0b00000000,  // DEL (unsupported)
+};
+
+
 HTL_onboard::HTL_onboard() {}
 
 void HTL_onboard::begin() {
@@ -110,6 +248,29 @@ void HTL_onboard::writeInt(int8_t intNumber) {
     }
 
     uint8_t value = segmentMap[intNumber];
+    setPins(value);
+}
+
+void HTL_onboard::writeChar(char c) {
+    setMode(MODE_HEX, true);
+
+    hexNumber = (int)c;
+
+    if (c < 32 || c > 127 || (charMap[(uint8_t)c] == 0 && c != ' ')) {
+        // Check if the character has an uppercase or lowercase equivalent in the segmentMap
+        if (c >= 'a' && c <= 'z') {
+            c = (char)toupper(c);  // Convert to uppercase
+        } else if (c >= 'A' && c <= 'Z') {
+            c = (char)tolower(c);  // Convert to lowercase
+        }
+
+        // If still unsupported, default to '0'
+        if (c < 32 || c > 127 || charMap[(uint8_t)c] == 0 && c != ' ') {
+            c = '0';  // Default to '0' if character is out of range or unsupported
+        }
+    }
+
+    uint8_t value = charMap[(uint8_t)c];
     setPins(value);
 }
 
@@ -265,7 +426,17 @@ void HTL_onboard::updateMultiplex() {
 
         switch (nextMode) {
             case MODE_HEX:
-                HEX_mode == 0 ? writeHex(hexNumber) : writeInt(hexNumber); // Update with current hex number
+                switch (HEX_mode) {
+                    case HEX_MODE_HEX:
+                        writeHex(hexNumber);
+                        break;
+                    case HEX_MODE_DEC:
+                        writeInt(hexNumber);
+                        break;
+                    case HEX_MODE_CHAR:
+                        writeChar(hexNumber);
+                        break;
+                }
                 break;
             case MODE_RGB:
                 setRGB(red, green, blue); // Update with current RGB values
@@ -303,9 +474,12 @@ void HTL_onboard::setMultiplexInterval(int multiplexInterval) {
 }
 
 void HTL_onboard::setHexMode(int mode) {
-    if (mode == 0 || mode == 1) {
+    if (mode >= 0 && mode <= 2) {
         HEX_mode = mode;
     }
+
+    // Ensure that the hexNumber is valid for the new mode
+    setHexNumber(hexNumber);
 }
 
 int HTL_onboard::getHexMode() {
@@ -313,11 +487,21 @@ int HTL_onboard::getHexMode() {
 }
 
 void HTL_onboard::setHexNumber(int number) {
-    if (HEX_mode == 0) {
-        hexNumber = constrain(number, -15, 15);
-    } else {
-        hexNumber = constrain(number, -19, 19);
+    switch (HEX_mode) {
+        case HEX_MODE_HEX:
+            hexNumber = constrain(number, -15, 15);
+            break;
+        case HEX_MODE_DEC:
+            hexNumber = constrain(number, -19, 19);
+            break;
+        case HEX_MODE_CHAR:
+            hexNumber = constrain(number, 0, 127);
+            break;
     }
+}
+
+void HTL_onboard::setChar(char c) {
+    setHexNumber((int)c);
 }
 
 int HTL_onboard::getHexNumber() {

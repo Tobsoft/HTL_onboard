@@ -27,6 +27,9 @@ void setup() {
 }
 ```
 ## Example Programs
+
+*For additional examples go to FIle > Examples > Examples from Custom Libraries > HTL_onboard in the Arduino IDE*
+
 ### Binary Counting on LED Stripe
 ```cpp
 #include <HTL_onboard.h>
@@ -182,6 +185,11 @@ onboard.setBlue(255);
   - Writes an integer to the HEX display.
   - `intNumber`: The integer number to display (-19 to 19).
 
+- `void writeChar(char c)`
+  - Display a character on the 7-segment display.
+  - This function attempts to display the provided character on the 7-segment display. If the character is not directly supported, it will attempt to display the uppercase or lowercase equivalent. If the character is still unsupported, it defaults to displaying '0'.
+  - `c`: The character to display (ASCII).
+
 - `void writeBinary(int binValue)`
   - Writes a binary value to the LED stripe.
   - `binValue`: The binary value to display (0 to 1023).
@@ -236,9 +244,9 @@ onboard.setBlue(255);
   - The provided interval must be non-negative.
   - `multiplexInterval`: The time interval in milliseconds for multiplexing. Must be a non-negative integer.
 
-- `void setHexMode(int mode)`
-  - Sets the display mode of the HEX display.
-  - `mode`: The mode to set (0 for HEX, 1 for Decimal).
+  - `void setHexMode(int mode)`
+    - Sets the display mode of the HEX display.
+    - `mode`: The mode to set (0 for HEX, 1 for Decimal, 2 for Character).
 
 - `int getHexMode()`
   - Gets the current display mode of the HEX display.
@@ -247,6 +255,10 @@ onboard.setBlue(255);
 - `void setHexNumber(int number)`
   - Sets the number to be displayed on the HEX display.
   - `number`: The number to display (-15 to 15 in HEX mode, -19 to 19 in Decimal mode).
+
+- `void setChar(char c)`
+  - Sets the character to be displayed on the HEX display.
+  - `c`: The character to display (ASCII).
 
 - `int getHexNumber()`
   - Gets the number currently displayed on the HEX display.

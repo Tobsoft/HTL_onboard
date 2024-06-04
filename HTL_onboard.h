@@ -24,11 +24,14 @@
 #define MODE_HEX 0
 #define MODE_STRIPE 1
 #define MODE_RGB 2
+
 #define HEX_MODE_HEX 0
 #define HEX_MODE_DEC 1
+#define HEX_MODE_CHAR 2
 
 #define RGB_DELAY 1 // How long to keep the RGB Led on in milliseconds
                     // WARNING: SETTING THIS TO A HIGH VALUE MAY DECREASE MULTIPLEXING FREQUENCY AND CAUSE FLICKERING IN OTHER MODES!
+                    // Maximum suggested value ~30
 
 // Define Pin Names for Breakout Pins(B)
 // B1 is Pin 1 of X17
@@ -81,6 +84,20 @@ public:
      * @param intNumber The integer number to display (-19 to 19).
      */
     void writeInt(int8_t intNumber);
+
+    /**
+    * @brief Display a character on the 7-segment display.
+    * 
+    * Displaying characters is supported in Multiplex mode
+    * 
+    * This function attempts to display the provided character on the
+    * 7-segment display. If the character is not directly supported,
+    * it will attempt to display the uppercase or lowercase equivalent.
+    * If the character is still unsupported, it defaults to displaying '0'.
+    * 
+    * @param c The character to display.
+    */
+    void writeChar(char c);
 
     /**
      * @brief Writes a binary value to the LED stripe.
@@ -177,7 +194,7 @@ public:
     /**
      * @brief Sets the display mode of the HEX display.
      * 
-     * @param mode The mode to set (0 for HEX, 1 for Decimal).
+     * @param mode The mode to set (0 for HEX, 1 for Decimal, 2 for Character).
      */
     void setHexMode(int mode);
 
@@ -196,11 +213,18 @@ public:
     void setHexNumber(int number);
 
     /**
-     * @brief Gets the number currently displayed on the HEX display.
+     * @brief Gets the number/character currently displayed on the HEX display.
      * 
-     * @return int The number displayed on the HEX display.
+     * @return int The number/character displayed on the HEX display as int.
      */
     int getHexNumber();
+
+    /**
+     * @brief Sets the character to be displayed on the HEX display.
+     * 
+     * @param c The character to display (ASCII).
+     */
+    void setChar(char c);
 
     /**
      * @brief Sets the intensity of the red component of the RGB LED.
