@@ -1,5 +1,4 @@
 #include <HTL_onboard.h>
-#include <string.h>
 
 #define MODE_HEX 0
 #define MODE_STRIPE 1
@@ -15,7 +14,7 @@ unsigned long lastHexUpdateTime = 0;
 unsigned long lastRgbUpdateTime = 0;
 unsigned long lastStripeUpdateTime = 0;
 
-String message = "HTL UNO   "; // It's good to add ~3 spaces to the end of the message, this adds a pause in the loop.
+String message = "HTL Uno   "; // It's good to add ~3 spaces to the end of the message, this adds a pause in the loop.
 int msg_inx = 1;
 int phase = 0;
 int colorIndex = 0;

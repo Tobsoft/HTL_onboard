@@ -20,6 +20,7 @@
 #define HTL_ONBOARD_H
 
 #include <Arduino.h>
+#include <string.h>
 
 #define MODE_HEX 0
 #define MODE_STRIPE 1
@@ -28,6 +29,7 @@
 #define HEX_MODE_HEX 0
 #define HEX_MODE_DEC 1
 #define HEX_MODE_CHAR 2
+#define HEX_MODE_STRING 3
 
 #define RGB_DELAY 1 // How long to keep the RGB Led on in milliseconds
                     // WARNING: SETTING THIS TO A HIGH VALUE MAY DECREASE MULTIPLEXING FREQUENCY AND CAUSE FLICKERING IN OTHER MODES!
@@ -227,6 +229,23 @@ public:
     void setChar(char c);
 
     /**
+     * @brief Sets the string to be displayed on the HEX display.
+     * 
+     * The string gets displayed character by character, with each character being displayed for strDelay (ms).
+     * Displaying strings is only supported for Multiplex mode, for Hex_mode only use setChar or only activate HEX mode
+     * 
+     * @param str The string to display (ASCII).
+     */
+    void setString(String str);
+
+    /**
+     * @brief Gets the string to be displayed on the HEX display.
+     * 
+     * @return String The string being displayed.
+     */
+    String getString();
+
+    /**
      * @brief Sets the intensity of the red component of the RGB LED.
      * 
      * @param r The intensity of the red component (0 to 255).
@@ -269,6 +288,20 @@ public:
     uint8_t getBlue();
 
     /**
+     * @brief Sets the delay of how long to display a character in string display mode.
+     * 
+     * @param ms The delay in ms.
+     */
+    void setStringDelay(int stringDelay);
+
+    /**
+     * @brief Gets the delay of how long to display a character in string display mode.
+     * 
+     * @return int The delay in ms.
+     */
+    int getStringDelay();
+
+    /**
      * @brief Sets the value of the LED stripe.
      * 
      * @param value The value to set (0 to 1023).
@@ -306,6 +339,10 @@ private:
 
     int HEX_mode = 0; // 0: display as HEX, 1: display as Decimal
     int hexNumber = 0; // Variable to hold the current number for HEX display
+    String str = "";
+    int strDelay = 500;
+    unsigned long lastStringUpdateTime = 0;
+    int strInx = 0;
     uint8_t red = 0, green = 0, blue = 0; // Variables for RGB LED
     int ledStripeValue = 0; // Variable for LED stripe
 };

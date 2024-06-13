@@ -169,132 +169,115 @@ onboard.setBlue(255);
 
 ### HTL_onboard Class
 
+The `HTL_onboard` class provides control over various onboard hardware components of the HTL Uno, including a HEX display, LED stripe, and RGB LED. It offers methods to display values, control LEDs, set colors, read switches and potentiometer values, and manage display modes. The class supports Multiplex operation.
+
 #### Public Methods
 
 - `HTL_onboard()`
-  - Constructor for the HTL_onboard class.
+  - Constructor for initializing the HTL_onboard library.
 
 - `void begin()`
-  - Initializes the HTL_onboard library. Sets up pin modes for all necessary pins.
+  - Initializes the library and sets up pin modes for all necessary pins.
 
 - `void writeHex(int8_t hexNumber)`
-  - Writes a hexadecimal number to the HEX display.
-  - `hexNumber`: The hexadecimal number to display (-15 to 15).
+  - Writes a hexadecimal number (-15 to 15) to the HEX display.
 
 - `void writeInt(int8_t intNumber)`
-  - Writes an integer to the HEX display.
-  - `intNumber`: The integer number to display (-19 to 19).
+  - Writes an integer (-19 to 19) to the HEX display.
 
 - `void writeChar(char c)`
-  - Display a character on the 7-segment display.
-  - This function attempts to display the provided character on the 7-segment display. If the character is not directly supported, it will attempt to display the uppercase or lowercase equivalent. If the character is still unsupported, it defaults to displaying '0'.
-  - `c`: The character to display (ASCII).
+  - Displays a character on the 7-segment display.
 
 - `void writeBinary(int binValue)`
-  - Writes a binary value to the LED stripe.
-  - `binValue`: The binary value to display (0 to 1023).
+  - Writes a binary value (0 to 1023) to the LED stripe.
 
 - `void setLED(int pin)`
-  - Sets a specific LED on the LED stripe.
-  - `pin`: The pin number of the LED to set (0 to 9).
+  - Sets a specific LED (0 to 9) on the LED stripe.
 
 - `void clearLED(int pin)`
-  - Clears a specific LED on the LED stripe. This function turns off the specified LED by setting its corresponding pin to HIGH.
-  - `pin`: The pin number of the LED to clear (0 to 9).
+  - Clears a specific LED (0 to 9) on the LED stripe.
 
 - `void clearStripe()`
-  - Clears all LEDs on the LED stripe (turns them off).
+  - Clears all LEDs on the LED stripe.
 
 - `void setRGB(uint8_t red, uint8_t green, uint8_t blue)`
-  - Sets the RGB LED to the specified color.
-  - `red`: The red intensity (0 to 255).
-  - `green`: The green intensity (0 to 255).
-  - `blue`: The blue intensity (0 to 255).
+  - Sets the RGB LED to the specified color (0 to 255 for each component).
 
 - `int readSwitchState()`
-  - Reads the state of the switches.
-  - Returns 2 if switch 2 is pressed, 3 if switch 3 is pressed, 1 if both switches are pressed, and 0 if no switch is pressed.
+  - Reads the state of the switches and returns:
+    - `2` if switch 2 is pressed,
+    - `3` if switch 3 is pressed,
+    - `1` if both switches are pressed,
+    - `0` if no switch is pressed.
 
 - `int readPot()`
-  - Reads the potentiometer value.
-  - Returns the analog value from the potentiometer (0-1023).
+  - Reads the value of the potentiometer (0-1023).
 
 - `void setMode(int mode, bool state)`
-  - Sets the mode of the HTL_onboard.
-  - `mode`: The mode to set (0 for HEX, 1 for LED stripe, 2 for RGB).
-  - `state`: The state to set the mode to (true for active, false for inactive).
+  - Sets the mode of the HTL_onboard (0 for HEX, 1 for LED stripe, 2 for RGB).
 
 - `void cfgSwitches(int switch1Threshold, int switchNoneThreshold, int switch12Threshold)`
-  - Configures the switch thresholds used for checking which switch was pressed.
-  - `switch1Threshold`: Threshold for switch 1.
-  - `switchNoneThreshold`: Threshold for no switch pressed.
-  - `switch12Threshold`: Threshold for both switches pressed.
+  - Configures thresholds for switch states.
 
 - `void updateMultiplex()`
-  - Updates all displays. Call this function in loop().
+  - Updates all displays. Should be called in the `loop()` function.
 
 - `void setModesMultiplex(const int modes[], int size)`
-  - Sets the modes which are used to display in multiplex operation.
-  - `modes`: Array of modes that are displayed in Multiplex mode. (0 for HEX, 1 for LED stripe, 2 for RGB).
-  - `size`: Size of the modes array.
+  - Sets the modes used in multiplex operation (0 for HEX, 1 for LED stripe, 2 for RGB).
 
 - `void setMultiplexInterval(int multiplexInterval)`
-  - Sets the interval for multiplexing between different display modes.
-  - This function sets the interval, in milliseconds, for how frequently the system cycles through the different active display modes (HEX, LED stripe, RGB).
-  - The provided interval must be non-negative.
-  - `multiplexInterval`: The time interval in milliseconds for multiplexing. Must be a non-negative integer.
+  - Sets the interval (in milliseconds) for multiplexing between different display modes.
 
-  - `void setHexMode(int mode)`
-    - Sets the display mode of the HEX display.
-    - `mode`: The mode to set (0 for HEX, 1 for Decimal, 2 for Character).
+- `void setHexMode(int mode)`
+  - Sets the display mode of the HEX display (0 for HEX, 1 for Decimal, 2 for Character).
 
 - `int getHexMode()`
-  - Gets the current display mode of the HEX display.
-  - Returns the current display mode (0 for HEX, 1 for Decimal).
+  - Retrieves the current display mode of the HEX display.
 
 - `void setHexNumber(int number)`
-  - Sets the number to be displayed on the HEX display.
-  - `number`: The number to display (-15 to 15 in HEX mode, -19 to 19 in Decimal mode).
+  - Sets the number to be displayed on the HEX display (-15 to 15 in HEX mode, -19 to 19 in Decimal mode).
+
+- `int getHexNumber()`
+  - Retrieves the number/character currently displayed on the HEX display.
 
 - `void setChar(char c)`
   - Sets the character to be displayed on the HEX display.
-  - `c`: The character to display (ASCII).
 
-- `int getHexNumber()`
-  - Gets the number currently displayed on the HEX display.
-  - Returns the number displayed on the HEX display.
+- `void setString(String str)`
+  - Sets the string to be displayed on the HEX display.
+
+- `String getString()`
+  - Retrieves the string currently displayed on the HEX display.
 
 - `void setRed(uint8_t r)`
-  - Sets the intensity of the red component of the RGB LED.
-  - `r`: The intensity of the red component (0 to 255).
+  - Sets the intensity of the red component of the RGB LED (0 to 255).
 
 - `void setGreen(uint8_t g)`
-  - Sets the intensity of the green component of the RGB LED.
-  - `g`: The intensity of the green component (0 to 255).
+  - Sets the intensity of the green component of the RGB LED (0 to 255).
 
 - `void setBlue(uint8_t b)`
-  - Sets the intensity of the blue component of the RGB LED.
-  - `b`: The intensity of the blue component (0 to 255).
+  - Sets the intensity of the blue component of the RGB LED (0 to 255).
 
 - `uint8_t getRed()`
-  - Gets the intensity of the red component of the RGB LED.
-  - Returns the intensity of the red component (0 to 255).
+  - Retrieves the intensity of the red component of the RGB LED.
 
 - `uint8_t getGreen()`
-  - Gets the intensity of the green component of the RGB LED.
-  - Returns the intensity of the green component (0 to 255).
+  - Retrieves the intensity of the green component of the RGB LED.
 
 - `uint8_t getBlue()`
-  - Gets the intensity of the blue component of the RGB LED.
-  - Returns the intensity of the blue component (0 to 255).
+  - Retrieves the intensity of the blue component of the RGB LED.
+
+- `void setStringDelay(int stringDelay)`
+  - Sets the delay (in milliseconds) for displaying each character in string display mode.
+
+- `int getStringDelay()`
+  - Retrieves the current delay (in milliseconds) for displaying each character in string display mode.
 
 - `void setLedStripeValue(int value)`
-  - Sets the value of the LED stripe.
-  - `value`: The value to set (0 to 1023).
+  - Sets the value (0 to 1023) of the LED stripe.
 
 - `int getLedStripeValue()`
-  - Gets the current value of the LED stripe.
-  - Returns the current value of the LED stripe (0 to 1023).
+  - Retrieves the current value (0 to 1023) of the LED stripe.
 
 ## Author
 Tobias Weich, 2024

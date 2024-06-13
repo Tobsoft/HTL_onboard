@@ -3,7 +3,6 @@
 // Create an instance of the HTL_onboard class
 HTL_onboard onboard;
 
-
 // Only update LED stripe every now and then, because the potentiometer tends to float.
 // Doing this will reduce flickering in the LSB
 

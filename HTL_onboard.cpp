@@ -85,7 +85,7 @@ const uint8_t charMap[128] = {
     0b00000000,  // '$' (unsupported)
     0b00000000,  // '%' (unsupported)
     0b00000000,  // '&' (unsupported)
-    0b00000000,  // ''' (unsupported)
+    0b00000010,  // '''
     0b00001110,  // '('
     0b00011100,  // ')'
     0b00000000,  // '*' (unsupported)
@@ -107,7 +107,7 @@ const uint8_t charMap[128] = {
     0b00000000,  // ':' (unsupported)
     0b00000000,  // ';' (unsupported)
     0b00000000,  // '<' (unsupported)
-    0b00000001,  // '='
+    0b01000001,  // '='
     0b00000000,  // '>' (unsupported)
     0b01100101,  // '?'
     0b01101111,  // '@'
@@ -145,25 +145,25 @@ const uint8_t charMap[128] = {
     0b00000000,  // '`' (unsupported)
     0b01110111,  // 'a'
     0b00011111,  // 'b'
-    0b01001110,  // 'c'
+    0b00001101,  // 'c'
     0b00111101,  // 'd'
     0b01001111,  // 'e'
     0b01000111,  // 'f'
     0b00000000,  // 'g' (unsupported)
-    0b00110111,  // 'h'
-    0b00000110,  // 'i'
+    0b00010111,  // 'h'
+    0b00000100,  // 'i'
     0b00111100,  // 'j'
     0b00000000,  // 'k' (unsupported)
     0b00001110,  // 'l'
     0b00000000,  // 'm' (unsupported)
     0b00010101,  // 'n'
-    0b01111110,  // 'o'
+    0b00011101,  // 'o'
     0b01100111,  // 'p'
     0b01110011,  // 'q'
     0b00000101,  // 'r'
     0b01011011,  // 's'
     0b00001111,  // 't'
-    0b00111110,  // 'u'
+    0b00011100,  // 'u'
     0b00000000,  // 'v' (unsupported)
     0b00000000,  // 'w' (unsupported)
     0b00000000,  // 'x' (unsupported)
@@ -273,6 +273,8 @@ void HTL_onboard::writeChar(char c) {
     uint8_t value = charMap[(uint8_t)c];
     setPins(value);
 }
+
+
 
 void HTL_onboard::setPins(uint8_t value) {
     for (int i = 6; i >= 0; i--) {
@@ -436,6 +438,16 @@ void HTL_onboard::updateMultiplex() {
                     case HEX_MODE_CHAR:
                         writeChar(hexNumber);
                         break;
+                    case HEX_MODE_STRING:
+                        if (currentTime - lastStringUpdateTime >= strDelay) {
+                            strInx++;
+                            lastStringUpdateTime = currentTime;
+                            if(strInx >= str.length()) {
+                                strInx = 0;
+                            }
+                        }
+                        writeChar(str[strInx]);
+                        break;
                 }
                 break;
             case MODE_RGB:
@@ -474,7 +486,7 @@ void HTL_onboard::setMultiplexInterval(int multiplexInterval) {
 }
 
 void HTL_onboard::setHexMode(int mode) {
-    if (mode >= 0 && mode <= 2) {
+    if (mode >= 0 && mode <= 3) {
         HEX_mode = mode;
     }
 
@@ -497,11 +509,22 @@ void HTL_onboard::setHexNumber(int number) {
         case HEX_MODE_CHAR:
             hexNumber = constrain(number, 0, 127);
             break;
+        case HEX_MODE_STRING:
+            strInx = 0;
+            break;
     }
 }
 
 void HTL_onboard::setChar(char c) {
     setHexNumber((int)c);
+}
+
+void HTL_onboard::setString(String str) {
+    this->str = str;
+}
+
+String HTL_onboard::getString() {
+    return str;
 }
 
 int HTL_onboard::getHexNumber() {

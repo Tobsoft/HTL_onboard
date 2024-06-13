@@ -1,35 +1,69 @@
-# Syntax highlighting for HTL_onboard library
+#######################################
+# Syntax Coloring Map For HTL_onboard #
+#######################################
 
-# Datatypes
-Datatypes	KEYWORD1
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
 
-# Keywords
-begin		KEYWORD2
-writeHex	KEYWORD2
-writeInt	KEYWORD2
-writeBinary	KEYWORD2
-setLED		KEYWORD2
-clearStripe	KEYWORD2
-setRGB		KEYWORD2
-readSwitchState	KEYWORD2
-readPot		KEYWORD2
-setMode		KEYWORD2
-clearLED	KEYWORD2
-setHexMode	KEYWORD2
-getHexMode	KEYWORD2
-setHexNumber	KEYWORD2
-getHexNumber	KEYWORD2
-setRed		KEYWORD2
-setGreen	KEYWORD2
-setBlue		KEYWORD2
-getRed		KEYWORD2
-getGreen	KEYWORD2
-getBlue		KEYWORD2
-setLedStripeValue	KEYWORD2
-getLedStripeValue	KEYWORD2
-cfgSwitches	KEYWORD2
+HTL_onboard    KEYWORD1
 
-# Constants
-MODE_HEX	KEYWORD3
-MODE_STRIPE	KEYWORD3
-MODE_RGB	KEYWORD3
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin                  KEYWORD2
+writeHex               KEYWORD2
+writeInt               KEYWORD2
+writeChar              KEYWORD2
+writeBinary            KEYWORD2
+setLED                 KEYWORD2
+clearLED               KEYWORD2
+clearStripe            KEYWORD2
+setRGB                 KEYWORD2
+readSwitchState        KEYWORD2
+readPot                KEYWORD2
+setMode                KEYWORD2
+cfgSwitches            KEYWORD2
+updateMultiplex        KEYWORD2
+setModesMultiplex      KEYWORD2
+setMultiplexInterval   KEYWORD2
+setHexMode             KEYWORD2
+getHexMode             KEYWORD2
+setHexNumber           KEYWORD2
+getHexNumber           KEYWORD2
+setChar                KEYWORD2
+setString              KEYWORD2
+getString              KEYWORD2
+setRed                 KEYWORD2
+setGreen               KEYWORD2
+setBlue                KEYWORD2
+getRed                 KEYWORD2
+getGreen               KEYWORD2
+getBlue                KEYWORD2
+setStringDelay         KEYWORD2
+getStringDelay         KEYWORD2
+setLedStripeValue      KEYWORD2
+getLedStripeValue      KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+MODE_HEX               LITERAL1
+MODE_STRIPE            LITERAL1
+MODE_RGB               LITERAL1
+
+HEX_MODE_HEX           LITERAL1
+HEX_MODE_DEC           LITERAL1
+HEX_MODE_CHAR          LITERAL1
+HEX_MODE_STRING        LITERAL1
+
+RGB_DELAY              LITERAL1
+
+B1                     LITERAL1
+B2                     LITERAL1
+B3                     LITERAL1
+B4                     LITERAL1
+B5                     LITERAL1
+B6                     LITERAL1
