@@ -164,6 +164,9 @@ onboard.setLedStripeValue(512);
 onboard.setRed(255);
 onboard.setGreen(255);
 onboard.setBlue(255);
+
+// Or use "setRGB_Multiplex":
+onboard.setRGB_Multiplex(255, 255, 255);
 ```
 
 
@@ -250,6 +253,9 @@ The `HTL_onboard` class provides control over various onboard hardware component
 
 - `String getString()`
   - Retrieves the string currently displayed on the HEX display.
+
+- `void setRGB_Multiplex(uint8_t red, uint8_t green, uint8_t blue)`
+  - Sets the color for the RGB LED when used in Multiplex mode (0 to 255 for each component).
 
 - `void setRed(uint8_t r)`
   - Sets the intensity of the red component of the RGB LED (0 to 255).

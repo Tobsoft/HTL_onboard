@@ -245,6 +245,17 @@ public:
      */
     String getString();
 
+
+    /**
+    *   @brief Sets the RGB Values used in Multiplex Mode
+    * 
+    *   @param red The red intensity (0 to 255).
+    *   @param green The green intensity (0 to 255).
+    *   @param blue The blue intensity (0 to 255).
+    *
+     */
+    void setRGB_Multiplex(uint8_t red, uint8_t green, uint8_t blue);
+
     /**
      * @brief Sets the intensity of the red component of the RGB LED.
      * 

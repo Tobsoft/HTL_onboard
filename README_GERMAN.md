@@ -164,6 +164,9 @@ onboard.setLedStripeValue(512);
 onboard.setRed(255);
 onboard.setGreen(255);
 onboard.setBlue(255);
+
+// Oder Benutze "setRGB_Multiplex"
+onboard.setRGB_Multiplex(255, 255, 255);
 ```
 
 
@@ -251,6 +254,9 @@ Die Klasse "HTL_onboard" ermöglicht die Steuerung verschiedener Onboard-Hardwar
 - `String getString()`
   - Ruft die aktuell auf dem HEX-Display angezeigte Zeichenkette ab.
 
+- `void setRGB_Multiplex(uint8_t red, uint8_t green, uint8_t blue)`
+  - Setzt die im Multiplex Modus verwendete Farbe der RGB-LED (0 bis 255 für jede Komponente).
+
 - `void setRed(uint8_t r)`
   - Setzt die Intensität der roten Komponente der RGB-LED (0 bis 255).
 
@@ -283,5 +289,3 @@ Die Klasse "HTL_onboard" ermöglicht die Steuerung verschiedener Onboard-Hardwar
 
 ## Autor
 Tobias Weich, 2024
-
-<small style="font-size: x-small;">Dieser Text wurde mithilfe von DeepL übersetzt und nachträglich überarbeitet</small>

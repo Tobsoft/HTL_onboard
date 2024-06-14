@@ -313,6 +313,12 @@ void HTL_onboard::setRGB(uint8_t red, uint8_t green, uint8_t blue) {
     analogWrite(9, 255 - blue);
 }
 
+void HTL_onboard::setRGB_Multiplex(uint8_t red, uint8_t green, uint8_t blue) {
+    setRed(red);
+    setGreen(green);
+    setBlue(blue);
+}
+
 void HTL_onboard::writeBinary(int binValue) {
     setMode(MODE_STRIPE, true);
 

@@ -35,6 +35,7 @@ getHexNumber           KEYWORD2
 setChar                KEYWORD2
 setString              KEYWORD2
 getString              KEYWORD2
+setRGB_Multiplex       KEYWORD2
 setRed                 KEYWORD2
 setGreen               KEYWORD2
 setBlue                KEYWORD2

@@ -58,21 +58,15 @@ void updateRgbValues() {
     switch (phase) {
         case 0:
             // Gradient transition from red to green
-            onboard.setRed(255 - colorIndex);
-            onboard.setGreen(colorIndex);
-            onboard.setBlue(0);
+            onboard.setRGB_Multiplex(255 - colorIndex, colorIndex, 0);
             break;
         case 1:
             // Gradient transition from green to blue
-            onboard.setRed(0);
-            onboard.setGreen(255 - colorIndex);
-            onboard.setBlue(colorIndex);
+            onboard.setRGB_Multiplex(0, 255 - colorIndex, colorIndex);
             break;
         case 2:
             // Gradient transition from blue to red
-            onboard.setRed(colorIndex);
-            onboard.setGreen(0);
-            onboard.setBlue(255 - colorIndex);
+            onboard.setRGB_Multiplex(colorIndex, 0, 255 - colorIndex);
             break;
     }
 
