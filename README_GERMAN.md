@@ -1,6 +1,8 @@
 # HTL_onboard-Bibliothek
 Die HTL_onboard Bibliothek bietet Funktionen zur Steuerung der onboard Hardwarekomponenten der HTL Uno Entwicklungsplatine, einschließlich HEX Display, LED Streifen, RGB LED, Schalter und Potentiometer.
 
+[English Version](README.md)
+
 ## Installation
 ### Installation über den Arduino Library Manager
 1. Öffne die Arduino IDE.
