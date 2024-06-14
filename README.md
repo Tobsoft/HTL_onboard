@@ -1,6 +1,8 @@
 # HTL_onboard Library
 The HTL_onboard library provides functions to control the onboard hardware components of the HTL Uno development board, including the HEX display, LED stripe, RGB LED, switches, and potentiometer.
 
+[German Version](README_GERMAN.md)
+
 ## Installation
 ### Installation via Arduino Library Manager
 1. Open the Arduino IDE.
