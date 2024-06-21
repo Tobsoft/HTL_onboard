@@ -196,6 +196,9 @@ Die Klasse "HTL_onboard" ermöglicht die Steuerung verschiedener Onboard-Hardwar
 - `void writeBinary(int binValue)`
   - Schreibt einen Binärwert (0 bis 1023) auf den LED-Streifen.
 
+- `void writeProgress(int progressValue)`
+  - Schreibt einen Wert (0 bis 10) auf den LED-Streifen in Form einer Fortschrittsanzeige.
+
 - `void setLED(int pin)`
   - Setzt eine bestimmte LED (0 bis 9) auf dem LED-Streifen.
 
@@ -254,6 +257,18 @@ Die Klasse "HTL_onboard" ermöglicht die Steuerung verschiedener Onboard-Hardwar
 - `String getString()`
   - Ruft die aktuell auf dem HEX-Display angezeigte Zeichenkette ab.
 
+- `void setStripeMode(int mode)`
+  - Setzt den Anzeigemodus des LED-Streifens (0 für Binär, 1 für Fortschritt).
+
+- `int getStripeMode()`
+  - Ruft den aktuellen Anzeigemodus des LED-Streifens ab (0 für Binär, 1 für Fortschritt).
+
+- `void setLedStripeValue(int value)`
+  - Setzt den Wert (0 bis 1023 im Binärmodus, 0 bis 10 im Fortschrittsmodus) des LED-Streifens.
+
+- `int getLedStripeValue()`
+  - Ruft den aktuellen Wert (0 bis 1023) des LED-Streifens ab.
+
 - `void setRGB_Multiplex(uint8_t red, uint8_t green, uint8_t blue)`
   - Setzt die im Multiplex Modus verwendete Farbe der RGB-LED (0 bis 255 für jede Komponente).
 
@@ -280,12 +295,6 @@ Die Klasse "HTL_onboard" ermöglicht die Steuerung verschiedener Onboard-Hardwar
 
 - `int getStringDelay()`
   - Ermittelt die aktuelle Verzögerung (in Millisekunden) für die Anzeige jedes Zeichens im String-Anzeigemodus.
-
-- `void setLedStripeValue(int value)`
-  - Setzt den Wert (0 bis 1023) des LED-Streifens.
-
-- `int getLedStripeValue()`
-  - Ruft den aktuellen Wert (0 bis 1023) des LED-Streifens ab.
 
 ## Autor
 Tobias Weich, 2024

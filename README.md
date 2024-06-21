@@ -30,7 +30,33 @@ void setup() {
 ```
 ## Example Programs
 
-*For additional examples go to FIle > Examples > Examples from Custom Libraries > HTL_onboard in the Arduino IDE*
+*For additional examples go to `File > Examples > Examples from Custom Libraries > HTL_onboard` in the Arduino IDE*
+
+### LED Stripe as progressbar
+```cpp
+#include <HTL_onboard.h>
+
+#define progressDelay 250
+
+HTL_onboard onboard;
+
+int progressValue = 0;
+
+void setup() {
+  onboard.begin();
+}
+
+void loop() {
+  onboard.writeProgress(progressValue);
+
+  progressValue++;
+  if (progressValue > 10) {
+    progressValue = 0;
+  }
+  
+  delay(progressDelay);
+}
+```
 
 ### Binary Counting on LED Stripe
 ```cpp
@@ -196,6 +222,9 @@ The `HTL_onboard` class provides control over various onboard hardware component
 - `void writeBinary(int binValue)`
   - Writes a binary value (0 to 1023) to the LED stripe.
 
+- `void writeProgress(int progressValue)`
+  - Writes a value to the LED stripe in progressbar form (0 to 10).
+
 - `void setLED(int pin)`
   - Sets a specific LED (0 to 9) on the LED stripe.
 
@@ -254,6 +283,15 @@ The `HTL_onboard` class provides control over various onboard hardware component
 - `String getString()`
   - Retrieves the string currently displayed on the HEX display.
 
+- `void setStripeMode(int mode)`
+  - Sets the display mode of the LED stripe (0 for Binary, 1 for Progress).
+
+- `int getStripeMode()`
+  - Gets the current display mode of the LED stripe (returns 0 for Binary, 1 for Progress).
+
+- `int getLedStripeValue()`
+  - Retrieves the current value (0 to 1023 in Binary mode, 0 to 10 in Progress mode) of the LED stripe.
+
 - `void setRGB_Multiplex(uint8_t red, uint8_t green, uint8_t blue)`
   - Sets the color for the RGB LED when used in Multiplex mode (0 to 255 for each component).
 
@@ -283,9 +321,6 @@ The `HTL_onboard` class provides control over various onboard hardware component
 
 - `void setLedStripeValue(int value)`
   - Sets the value (0 to 1023) of the LED stripe.
-
-- `int getLedStripeValue()`
-  - Retrieves the current value (0 to 1023) of the LED stripe.
 
 ## Author
 Tobias Weich, 2024

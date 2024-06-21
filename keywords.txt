@@ -46,6 +46,9 @@ setStringDelay         KEYWORD2
 getStringDelay         KEYWORD2
 setLedStripeValue      KEYWORD2
 getLedStripeValue      KEYWORD2
+writeProgress          KEYWORD2
+setStripeMode          KEYWORD2
+getStripeMode          KEYWORD2
 
 #######################################
 # Constants (LITERAL1)

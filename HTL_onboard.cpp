@@ -335,6 +335,24 @@ void HTL_onboard::writeBinary(int binValue) {
     }
 }
 
+void HTL_onboard::writeProgress(int progressValue) {
+    setMode(MODE_STRIPE, true);
+
+    // Ensure the binValue is within the range of 0 to 10 (10 LEDS)
+    if (progressValue < 0 || progressValue > 10) {
+        return; // Out of range
+    }
+
+    // Set each LED up to progressValue
+    for (int i = 0; i < progressValue; i++) {
+        digitalWrite(pinMappingStripe[i], LOW); // Active low logic
+    }
+
+    for (int i = progressValue; i < 10; i++) {
+        digitalWrite(pinMappingStripe[i], HIGH); // Active low logic
+    }
+}
+
 void HTL_onboard::setLED(int pin) {
     setMode(MODE_STRIPE, true);
 
@@ -456,12 +474,21 @@ void HTL_onboard::updateMultiplex() {
                         break;
                 }
                 break;
+
+            case MODE_STRIPE:
+                switch (stripeMode) {
+                    case STRIPE_MODE_BIN:
+                        writeBinary(ledStripeValue);
+                        break;
+                    case STRIPE_MODE_PROG:
+                        writeProgress(ledStripeValue);
+                        break;
+                }
+                break;
+
             case MODE_RGB:
                 setRGB(red, green, blue); // Update with current RGB values
                 delay(RGB_DELAY);
-                break;
-            case MODE_STRIPE:
-                writeBinary(ledStripeValue); // Update with current LED stripe value
                 break;
         }
 
@@ -537,6 +564,35 @@ int HTL_onboard::getHexNumber() {
     return hexNumber;
 }
 
+
+void HTL_onboard::setStripeMode(int mode) {
+    if (mode >= 0 && mode <= 1) {
+        stripeMode = mode;
+    }
+
+    // Ensure that the hexNumber is valid for the new mode
+    setLedStripeValue(ledStripeValue);
+}
+
+int HTL_onboard::getStripeMode() {
+    return stripeMode;
+}
+
+void HTL_onboard::setLedStripeValue(int value) {
+    switch (stripeMode) {
+        case STRIPE_MODE_BIN:
+            ledStripeValue = constrain(value, 0, 1023);
+            break;
+        case STRIPE_MODE_PROG:
+            ledStripeValue = constrain(value, 0, 10);
+            break;
+    }
+}
+
+int HTL_onboard::getLedStripeValue() {
+    return ledStripeValue;
+}
+
 void HTL_onboard::setRed(uint8_t r) {
     red = constrain(r, 0, 255);
 }
@@ -559,12 +615,4 @@ uint8_t HTL_onboard::getGreen() {
 
 uint8_t HTL_onboard::getBlue() {
     return blue;
-}
-
-void HTL_onboard::setLedStripeValue(int value) {
-    ledStripeValue = constrain(value, 0, 1023);
-}
-
-int HTL_onboard::getLedStripeValue() {
-    return ledStripeValue;
 }

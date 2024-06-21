@@ -31,6 +31,10 @@ void loop() {
     if (currentTime - lastUpdateTime >= updateInterval) {
         // Read the value from the potentiometer
         int potValue = onboard.readPot();
+        // If reading is close to maximum, display all leds on
+        if (potValue >= 1022) {
+          potValue = 1023;
+        }
 
         // Display the potentiometer value in binary on the LED stripe
         onboard.setLedStripeValue(potValue);

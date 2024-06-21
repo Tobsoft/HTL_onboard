@@ -31,6 +31,9 @@
 #define HEX_MODE_CHAR 2
 #define HEX_MODE_STRING 3
 
+#define STRIPE_MODE_BIN 0
+#define STRIPE_MODE_PROG 1
+
 #define RGB_DELAY 1 // How long to keep the RGB Led on in milliseconds
                     // WARNING: SETTING THIS TO A HIGH VALUE MAY DECREASE MULTIPLEXING FREQUENCY AND CAUSE FLICKERING IN OTHER MODES!
                     // Maximum suggested value ~30
@@ -107,6 +110,13 @@ public:
      * @param binValue The binary value to display (0 to 1023).
      */
     void writeBinary(int binValue);
+
+    /**
+     * @brief Writes a value to the LED stripe in Progress Bar form.
+     * 
+     * @param progressValue The progress value to display (0 to 10).
+     */
+    void writeProgress(int progressValue);
 
     /**
      * @brief Sets a specific LED on the LED stripe.
@@ -203,7 +213,7 @@ public:
     /**
      * @brief Gets the current display mode of the HEX display.
      * 
-     * @return int The current display mode (0 for HEX, 1 for Decimal).
+     * @return int The current display mode (0 for HEX, 1 for Decimal, 2 for Character, 3 for String).
      */
     int getHexMode();
 
@@ -245,6 +255,19 @@ public:
      */
     String getString();
 
+    /**
+     * @brief Sets the display mode of the LED Stripe.
+     * 
+     * @param mode The mode to set (0 for Binary, 1 for Progress).
+     */
+    void setStripeMode(int mode);
+
+    /**
+     * @brief Gets the current display mode of the LED Stripe.
+     * 
+     * @return int The current display mode (0 for Binary, 1 for Progress).
+     */
+    int getStripeMode();
 
     /**
     *   @brief Sets the RGB Values used in Multiplex Mode
@@ -348,14 +371,15 @@ private:
     bool modesActive[3] = {false, false, false}; // Track active modes
     int multiplexInterval = 1;
 
-    int HEX_mode = 0; // 0: display as HEX, 1: display as Decimal
+    int HEX_mode = 0; // 0: display as HEX, 1: display as Decimal, 2: display as character, 3: display as String
     int hexNumber = 0; // Variable to hold the current number for HEX display
+    int stripeMode = 0; //0: display as binary, 1: display as progress
+    int ledStripeValue = 0; // Variable for LED stripe
     String str = "";
     int strDelay = 500;
     unsigned long lastStringUpdateTime = 0;
     int strInx = 0;
     uint8_t red = 0, green = 0, blue = 0; // Variables for RGB LED
-    int ledStripeValue = 0; // Variable for LED stripe
 };
 
 #endif
