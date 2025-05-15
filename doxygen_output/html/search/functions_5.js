@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['setblue_0',['setBlue',['../class_h_t_l__onboard.html#aeb12cab35ff962863ce7ae8da18b0c14',1,'HTL_onboard']]],
+  ['setchar_1',['setChar',['../class_h_t_l__onboard.html#a07f4bc24e5bf4ed88bdea9956014c644',1,'HTL_onboard']]],
+  ['setgreen_2',['setGreen',['../class_h_t_l__onboard.html#ae128bbc974b8cc5a317fe611b58e398c',1,'HTL_onboard']]],
+  ['sethexmode_3',['setHexMode',['../class_h_t_l__onboard.html#ab53c4e846dd276af8f2574e49019c33a',1,'HTL_onboard']]],
+  ['sethexnumber_4',['setHexNumber',['../class_h_t_l__onboard.html#a1f46384aac538ac904ec4a802c0ee8e8',1,'HTL_onboard']]],
+  ['setled_5',['setLED',['../class_h_t_l__onboard.html#a9276d2f25e4f9ad5ad1d10f24f2ee250',1,'HTL_onboard']]],
+  ['setledstripevalue_6',['setLedStripeValue',['../class_h_t_l__onboard.html#a01e1bbba54952a13ae17ca7b97c4c29c',1,'HTL_onboard']]],
+  ['setmode_7',['setMode',['../class_h_t_l__onboard.html#aabdafebf0cb27635a1807e4e757e9131',1,'HTL_onboard']]],
+  ['setmodesmultiplex_8',['setModesMultiplex',['../class_h_t_l__onboard.html#a8bd4ad5557eeb776f07b2e8ac317d090',1,'HTL_onboard']]],
+  ['setmultiplexinterval_9',['setMultiplexInterval',['../class_h_t_l__onboard.html#a85475ddd8954e75e2180df34aef3930a',1,'HTL_onboard']]],
+  ['setred_10',['setRed',['../class_h_t_l__onboard.html#a1c247b0374b9498aff71143df3f59923',1,'HTL_onboard']]],
+  ['setrgb_11',['setRGB',['../class_h_t_l__onboard.html#a4e6e62af7dba27982561b371b925a45f',1,'HTL_onboard']]],
+  ['setrgb_5fmultiplex_12',['setRGB_Multiplex',['../class_h_t_l__onboard.html#a90774e322346143ae19a92abd3a6896f',1,'HTL_onboard']]],
+  ['setstring_13',['setString',['../class_h_t_l__onboard.html#a5f5f594fa2dca5da4f224bf3e007991b',1,'HTL_onboard']]],
+  ['setstringdelay_14',['setStringDelay',['../class_h_t_l__onboard.html#ac1aa66560483437aa0de1fc27d95f96c',1,'HTL_onboard']]],
+  ['setstripemode_15',['setStripeMode',['../class_h_t_l__onboard.html#a108126141b3e086b705535c81f882c6c',1,'HTL_onboard']]]
+];

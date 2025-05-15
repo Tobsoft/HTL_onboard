@@ -1,0 +1,373 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="_h_t_l__onboard_8h" kind="file" language="C++">
+    <compoundname>HTL_onboard.h</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includes local="no">string.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>Arduino.h</label>
+      </node>
+      <node id="1">
+        <label>HTL_onboard.h</label>
+        <link refid="_h_t_l__onboard_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>string.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="class_h_t_l__onboard" prot="public">HTL_onboard</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="_h_t_l__onboard_8h_1a23c60ac09dd409f28b8b4db0b59a07db" prot="public" static="no">
+        <name>MODE_HEX</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HTL_onboard.h" line="25" column="9" bodyfile="HTL_onboard.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_h_t_l__onboard_8h_1a66f9e52417ebc384acdb2c5d01ed39ad" prot="public" static="no">
+        <name>MODE_STRIPE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HTL_onboard.h" line="26" column="9" bodyfile="HTL_onboard.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_h_t_l__onboard_8h_1a04fe47a6d04a50f7b0f2cd7e75acfbb1" prot="public" static="no">
+        <name>MODE_RGB</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HTL_onboard.h" line="27" column="9" bodyfile="HTL_onboard.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_h_t_l__onboard_8h_1a0ffd287ebdd01ab8b0030760d3ee692a" prot="public" static="no">
+        <name>HEX_MODE_HEX</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HTL_onboard.h" line="29" column="9" bodyfile="HTL_onboard.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_h_t_l__onboard_8h_1a2f7869ed38cd5d073bb399c942aaf597" prot="public" static="no">
+        <name>HEX_MODE_DEC</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HTL_onboard.h" line="30" column="9" bodyfile="HTL_onboard.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_h_t_l__onboard_8h_1a30136a560b77692fb0e7def2bff45f15" prot="public" static="no">
+        <name>HEX_MODE_CHAR</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HTL_onboard.h" line="31" column="9" bodyfile="HTL_onboard.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_h_t_l__onboard_8h_1a88fee052fbcdccdd46aad0be65155635" prot="public" static="no">
+        <name>HEX_MODE_STRING</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HTL_onboard.h" line="32" column="9" bodyfile="HTL_onboard.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_h_t_l__onboard_8h_1af1f4ec69d8559cc98111eca23b457b12" prot="public" static="no">
+        <name>STRIPE_MODE_BIN</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HTL_onboard.h" line="34" column="9" bodyfile="HTL_onboard.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_h_t_l__onboard_8h_1a252b1bdf2b89564e0a019b61c2069940" prot="public" static="no">
+        <name>STRIPE_MODE_PROG</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HTL_onboard.h" line="35" column="9" bodyfile="HTL_onboard.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_h_t_l__onboard_8h_1ad76e54acff3a54d8ef28683f1b718913" prot="public" static="no">
+        <name>RGB_DELAY</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HTL_onboard.h" line="37" column="9" bodyfile="HTL_onboard.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_h_t_l__onboard_8h_1a7b21d6a6a4573b4997b1f04b01cd4efb" prot="public" static="no">
+        <name>B1</name>
+        <initializer>GND</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HTL_onboard.h" line="50" column="9" bodyfile="HTL_onboard.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_h_t_l__onboard_8h_1a6945d50f798e1fde624d70c74457090e" prot="public" static="no">
+        <name>B2</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HTL_onboard.h" line="51" column="9" bodyfile="HTL_onboard.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_h_t_l__onboard_8h_1ae6ac0edb1e2c9c7672ab9488d8b65be9" prot="public" static="no">
+        <name>B3</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HTL_onboard.h" line="52" column="9" bodyfile="HTL_onboard.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_h_t_l__onboard_8h_1a0bf59f84e29fb57d27314583365a88d6" prot="public" static="no">
+        <name>B4</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HTL_onboard.h" line="53" column="9" bodyfile="HTL_onboard.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_h_t_l__onboard_8h_1abaa73bfe02579d51cebce4434d15c5e1" prot="public" static="no">
+        <name>B5</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HTL_onboard.h" line="54" column="9" bodyfile="HTL_onboard.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_h_t_l__onboard_8h_1a7cefe311831c7cc8c8a974860be1ac52" prot="public" static="no">
+        <name>B6</name>
+        <initializer>6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HTL_onboard.h" line="55" column="9" bodyfile="HTL_onboard.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/>Copyright<sp/>2024<sp/>Tobias<sp/>Weich</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/><sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/><sp/><sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/><sp/><sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"></highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/><sp/><sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/><sp/><sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/><sp/><sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/><sp/><sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/><sp/><sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>HTL_ONBOARD_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HTL_ONBOARD_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="_h_t_l__onboard_8h_1a23c60ac09dd409f28b8b4db0b59a07db" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MODE_HEX<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="_h_t_l__onboard_8h_1a66f9e52417ebc384acdb2c5d01ed39ad" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MODE_STRIPE<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="_h_t_l__onboard_8h_1a04fe47a6d04a50f7b0f2cd7e75acfbb1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MODE_RGB<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="_h_t_l__onboard_8h_1a0ffd287ebdd01ab8b0030760d3ee692a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HEX_MODE_HEX<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="_h_t_l__onboard_8h_1a2f7869ed38cd5d073bb399c942aaf597" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HEX_MODE_DEC<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="_h_t_l__onboard_8h_1a30136a560b77692fb0e7def2bff45f15" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HEX_MODE_CHAR<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="_h_t_l__onboard_8h_1a88fee052fbcdccdd46aad0be65155635" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HEX_MODE_STRING<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="_h_t_l__onboard_8h_1af1f4ec69d8559cc98111eca23b457b12" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STRIPE_MODE_BIN<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="_h_t_l__onboard_8h_1a252b1bdf2b89564e0a019b61c2069940" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STRIPE_MODE_PROG<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="_h_t_l__onboard_8h_1ad76e54acff3a54d8ef28683f1b718913" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RGB_DELAY<sp/>1<sp/></highlight><highlight class="comment">//<sp/>How<sp/>long<sp/>to<sp/>keep<sp/>the<sp/>RGB<sp/>Led<sp/>on<sp/>in<sp/>milliseconds</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>WARNING:<sp/>SETTING<sp/>THIS<sp/>TO<sp/>A<sp/>HIGH<sp/>VALUE<sp/>MAY<sp/>DECREASE<sp/>MULTIPLEXING<sp/>FREQUENCY<sp/>AND<sp/>CAUSE<sp/>FLICKERING<sp/>IN<sp/>OTHER<sp/>MODES!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Maximum<sp/>suggested<sp/>value<sp/>~30</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Define<sp/>Pin<sp/>Names<sp/>for<sp/>Breakout<sp/>Pins(B)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>B1<sp/>is<sp/>Pin<sp/>1<sp/>of<sp/>X17</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/><sp/><sp/><sp/>B1<sp/>B2<sp/>B3<sp/>B4<sp/>B5<sp/>B6</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/><sp/><sp/><sp/>.<sp/><sp/>.<sp/><sp/>.<sp/><sp/>.<sp/><sp/>.<sp/><sp/>.<sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/><sp/><sp/>|-<sp/>X17<sp/>-||-<sp/>X16<sp/>-|</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/><sp/><sp/><sp/>1<sp/><sp/>2<sp/><sp/>3<sp/><sp/>1<sp/><sp/>2<sp/><sp/>3</highlight></codeline>
+<codeline lineno="48"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="_h_t_l__onboard_8h_1a7b21d6a6a4573b4997b1f04b01cd4efb" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>B1<sp/>GND</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="_h_t_l__onboard_8h_1a6945d50f798e1fde624d70c74457090e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>B2<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="_h_t_l__onboard_8h_1ae6ac0edb1e2c9c7672ab9488d8b65be9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>B3<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="_h_t_l__onboard_8h_1a0bf59f84e29fb57d27314583365a88d6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>B4<sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="_h_t_l__onboard_8h_1abaa73bfe02579d51cebce4434d15c5e1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>B5<sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="_h_t_l__onboard_8h_1a7cefe311831c7cc8c8a974860be1ac52" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>B6<sp/>6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="class_h_t_l__onboard" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_h_t_l__onboard_1acfb60693f7cc38782cc6ac969de4ea85" kindref="member">HTL_onboard</ref><sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="70" refid="class_h_t_l__onboard_1acfb60693f7cc38782cc6ac969de4ea85" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_h_t_l__onboard_1acfb60693f7cc38782cc6ac969de4ea85" kindref="member">HTL_onboard</ref>();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="class_h_t_l__onboard_1a88b65377c0c8397e6ae17e9ffee5fe56" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a88b65377c0c8397e6ae17e9ffee5fe56" kindref="member">begin</ref>();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="class_h_t_l__onboard_1a760e3496a5578922539d6562d438c75c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a760e3496a5578922539d6562d438c75c" kindref="member">writeHex</ref>(int8_t<sp/>hexNumber);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91" refid="class_h_t_l__onboard_1aef763b81deebbb77ee39971e95890cdc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1aef763b81deebbb77ee39971e95890cdc" kindref="member">writeInt</ref>(int8_t<sp/>intNumber);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="class_h_t_l__onboard_1a5991aca1e6a6a3874c8f3754d23602e2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a5991aca1e6a6a3874c8f3754d23602e2" kindref="member">writeChar</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>c);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="class_h_t_l__onboard_1ab36757db8db11f45b0d1ac46010c0131" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1ab36757db8db11f45b0d1ac46010c0131" kindref="member">writeBinary</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>binValue);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="class_h_t_l__onboard_1a5d95b23faac0ee94e05b481e826dcf9b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a5d95b23faac0ee94e05b481e826dcf9b" kindref="member">writeProgress</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>progressValue);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126" refid="class_h_t_l__onboard_1a9276d2f25e4f9ad5ad1d10f24f2ee250" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a9276d2f25e4f9ad5ad1d10f24f2ee250" kindref="member">setLED</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pin);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135" refid="class_h_t_l__onboard_1a560a8bfd0817f05267f75992ecbefa4e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a560a8bfd0817f05267f75992ecbefa4e" kindref="member">clearLED</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pin);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140" refid="class_h_t_l__onboard_1a8d4b65a949203de0866e64581cd20bc2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a8d4b65a949203de0866e64581cd20bc2" kindref="member">clearStripe</ref>();</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149" refid="class_h_t_l__onboard_1a4e6e62af7dba27982561b371b925a45f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a4e6e62af7dba27982561b371b925a45f" kindref="member">setRGB</ref>(uint8_t<sp/>red,<sp/>uint8_t<sp/>green,<sp/>uint8_t<sp/>blue);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156" refid="class_h_t_l__onboard_1aa0bcdb1c70e2778f1062036ec3966a28" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1aa0bcdb1c70e2778f1062036ec3966a28" kindref="member">readSwitchState</ref>();</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163" refid="class_h_t_l__onboard_1ad1c187bdc31df05c05737ea252a898ae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1ad1c187bdc31df05c05737ea252a898ae" kindref="member">readPot</ref>();</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171" refid="class_h_t_l__onboard_1aabdafebf0cb27635a1807e4e757e9131" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1aabdafebf0cb27635a1807e4e757e9131" kindref="member">setMode</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mode,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>state);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180" refid="class_h_t_l__onboard_1a8c34691461b7d44c23769bcd289f491d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a8c34691461b7d44c23769bcd289f491d" kindref="member">cfgSwitches</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>switch1Threshold,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>switchNoneThreshold,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>switch12Threshold);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185" refid="class_h_t_l__onboard_1a00851f4921202d3fbe3af7f626895bc3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a00851f4921202d3fbe3af7f626895bc3" kindref="member">updateMultiplex</ref>();</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192" refid="class_h_t_l__onboard_1a8bd4ad5557eeb776f07b2e8ac317d090" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a8bd4ad5557eeb776f07b2e8ac317d090" kindref="member">setModesMultiplex</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>modes[],<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="204" refid="class_h_t_l__onboard_1a85475ddd8954e75e2180df34aef3930a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a85475ddd8954e75e2180df34aef3930a" kindref="member">setMultiplexInterval</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>multiplexInterval);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211" refid="class_h_t_l__onboard_1ab53c4e846dd276af8f2574e49019c33a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1ab53c4e846dd276af8f2574e49019c33a" kindref="member">setHexMode</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mode);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218" refid="class_h_t_l__onboard_1a828ffc5c147a86fd4fba2993906b6d76" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a828ffc5c147a86fd4fba2993906b6d76" kindref="member">getHexMode</ref>();</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225" refid="class_h_t_l__onboard_1a1f46384aac538ac904ec4a802c0ee8e8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a1f46384aac538ac904ec4a802c0ee8e8" kindref="member">setHexNumber</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>number);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232" refid="class_h_t_l__onboard_1ac0354777962b814ffb003482b57ad354" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1ac0354777962b814ffb003482b57ad354" kindref="member">getHexNumber</ref>();</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239" refid="class_h_t_l__onboard_1a07f4bc24e5bf4ed88bdea9956014c644" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a07f4bc24e5bf4ed88bdea9956014c644" kindref="member">setChar</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>c);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249" refid="class_h_t_l__onboard_1a5f5f594fa2dca5da4f224bf3e007991b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a5f5f594fa2dca5da4f224bf3e007991b" kindref="member">setString</ref>(String<sp/>str);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256" refid="class_h_t_l__onboard_1ad4612fb21a6d2fc46431845cc5d52b6a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>String<sp/><ref refid="class_h_t_l__onboard_1ad4612fb21a6d2fc46431845cc5d52b6a" kindref="member">getString</ref>();</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263" refid="class_h_t_l__onboard_1a108126141b3e086b705535c81f882c6c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a108126141b3e086b705535c81f882c6c" kindref="member">setStripeMode</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mode);</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="270" refid="class_h_t_l__onboard_1a4c1d2d884513f5ffbe562a961eaa08e1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a4c1d2d884513f5ffbe562a961eaa08e1" kindref="member">getStripeMode</ref>();</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="280" refid="class_h_t_l__onboard_1a90774e322346143ae19a92abd3a6896f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a90774e322346143ae19a92abd3a6896f" kindref="member">setRGB_Multiplex</ref>(uint8_t<sp/>red,<sp/>uint8_t<sp/>green,<sp/>uint8_t<sp/>blue);</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287" refid="class_h_t_l__onboard_1a1c247b0374b9498aff71143df3f59923" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a1c247b0374b9498aff71143df3f59923" kindref="member">setRed</ref>(uint8_t<sp/>r);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294" refid="class_h_t_l__onboard_1ae128bbc974b8cc5a317fe611b58e398c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1ae128bbc974b8cc5a317fe611b58e398c" kindref="member">setGreen</ref>(uint8_t<sp/>g);</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301" refid="class_h_t_l__onboard_1aeb12cab35ff962863ce7ae8da18b0c14" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1aeb12cab35ff962863ce7ae8da18b0c14" kindref="member">setBlue</ref>(uint8_t<sp/>b);</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight></codeline>
+<codeline lineno="308" refid="class_h_t_l__onboard_1a32a71fc78a1ac5300f0e22d1479e6db3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="class_h_t_l__onboard_1a32a71fc78a1ac5300f0e22d1479e6db3" kindref="member">getRed</ref>();</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight></codeline>
+<codeline lineno="315" refid="class_h_t_l__onboard_1a61e6e9b33f97f06620d6ec525d937b2f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="class_h_t_l__onboard_1a61e6e9b33f97f06620d6ec525d937b2f" kindref="member">getGreen</ref>();</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"></highlight></codeline>
+<codeline lineno="322" refid="class_h_t_l__onboard_1a686e4c128636d16d0a6d2e3d7c910c45" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="class_h_t_l__onboard_1a686e4c128636d16d0a6d2e3d7c910c45" kindref="member">getBlue</ref>();</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"></highlight></codeline>
+<codeline lineno="329" refid="class_h_t_l__onboard_1ac1aa66560483437aa0de1fc27d95f96c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1ac1aa66560483437aa0de1fc27d95f96c" kindref="member">setStringDelay</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>stringDelay);</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"></highlight></codeline>
+<codeline lineno="336" refid="class_h_t_l__onboard_1a21868924ca825c9b32bf90b09e71212b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a21868924ca825c9b32bf90b09e71212b" kindref="member">getStringDelay</ref>();</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"></highlight></codeline>
+<codeline lineno="343" refid="class_h_t_l__onboard_1a01e1bbba54952a13ae17ca7b97c4c29c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a01e1bbba54952a13ae17ca7b97c4c29c" kindref="member">setLedStripeValue</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"></highlight></codeline>
+<codeline lineno="350" refid="class_h_t_l__onboard_1a0e9e9dedf7312dbd9999685ad8edaefc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_h_t_l__onboard_1a0e9e9dedf7312dbd9999685ad8edaefc" kindref="member">getLedStripeValue</ref>();</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"></highlight></codeline>
+<codeline lineno="352"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setPins(uint8_t<sp/>value);</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"></highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>pinMapping[10]<sp/>=<sp/>{0,<sp/>1,<sp/>2,<sp/>3,<sp/>4,<sp/>5,<sp/>6,<sp/>8,<sp/>7,<sp/>9};<sp/></highlight><highlight class="comment">//<sp/>abcdefgNhi</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>pinMappingStripe[10]<sp/>=<sp/>{0,<sp/>1,<sp/>2,<sp/>3,<sp/>4,<sp/>5,<sp/>6,<sp/>7,<sp/>8,<sp/>9};</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>selectPins[3]<sp/>=<sp/>{10,<sp/>11,<sp/>12};<sp/></highlight><highlight class="comment">//<sp/>HEX-Panel,<sp/>LED-Stripe,<sp/>RGB-LED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="363"><highlight class="normal"></highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Note<sp/>that<sp/>switch<sp/>1<sp/>is<sp/>S2<sp/>and<sp/>switch<sp/>2<sp/>is<sp/>S3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>switch1Threshold<sp/>=<sp/>700;</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>switchNoneThreshold<sp/>=<sp/>900;</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>switch12Threshold<sp/>=<sp/>500;</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"></highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>lastMultiplexTime<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currentMode<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>Start<sp/>with<sp/>HEX<sp/>display</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>modesActive[3]<sp/>=<sp/>{</highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">};<sp/></highlight><highlight class="comment">//<sp/>Track<sp/>active<sp/>modes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>multiplexInterval<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"></highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>HEX_mode<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>0:<sp/>display<sp/>as<sp/>HEX,<sp/>1:<sp/>display<sp/>as<sp/>Decimal,<sp/>2:<sp/>display<sp/>as<sp/>character,<sp/>3:<sp/>display<sp/>as<sp/>String</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>hexNumber<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>Variable<sp/>to<sp/>hold<sp/>the<sp/>current<sp/>number<sp/>for<sp/>HEX<sp/>display</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>stripeMode<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//0:<sp/>display<sp/>as<sp/>binary,<sp/>1:<sp/>display<sp/>as<sp/>progress</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="377"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ledStripeValue<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>Variable<sp/>for<sp/>LED<sp/>stripe</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="378"><highlight class="normal"><sp/><sp/><sp/><sp/>String<sp/>str<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>strDelay<sp/>=<sp/>500;</highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>lastStringUpdateTime<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>strInx<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>red<sp/>=<sp/>0,<sp/>green<sp/>=<sp/>0,<sp/>blue<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>Variables<sp/>for<sp/>RGB<sp/>LED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="383"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="384"><highlight class="normal"></highlight></codeline>
+<codeline lineno="385"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="HTL_onboard.h"/>
+  </compounddef>
+</doxygen>
