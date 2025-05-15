@@ -80,4 +80,10 @@
     <member refid="_h_t_l__onboard_8h_1abaa73bfe02579d51cebce4434d15c5e1" kind="define"><name>B5</name></member>
     <member refid="_h_t_l__onboard_8h_1a7cefe311831c7cc8c8a974860be1ac52" kind="define"><name>B6</name></member>
   </compound>
+  <compound refid="dir_7f0d3491d8b5f205d6cabbc62a833507" kind="dir"><name></name>
+  </compound>
+  <compound refid="dir_da92606663f4ecb03aa66c183f15dac3" kind="dir"><name>C:/Users/User/source/repos</name>
+  </compound>
+  <compound refid="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b" kind="dir"><name>C:/Users/User/source</name>
+  </compound>
 </doxygenindex>
