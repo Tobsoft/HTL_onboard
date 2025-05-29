@@ -92,8 +92,8 @@ void setup() {
 }
 
 void loop() {
-    // Display hexadecimal numbers from -F to F
-    for (int i = -15; i <= 15; i++) {
+    // Display hexadecimal numbers from -1F to 1F
+    for (int i = -0x1F; i <= 0x1F; i++) {
         hexPanel.writeHex(i);
         delay(500); // Delay for 0.5 seconds
     }
@@ -271,7 +271,7 @@ The `HTL_onboard` class provides control over various onboard hardware component
   - Retrieves the current display mode of the HEX display.
 
 - `void setHexNumber(int number)`
-  - Sets the number to be displayed on the HEX display (-15 to 15 in HEX mode, -19 to 19 in Decimal mode).
+  - Sets the number to be displayed on the HEX display (-0x1F to 0x1F in HEX mode, -19 to 19 in Decimal mode).
 
 - `int getHexNumber()`
   - Retrieves the number/character currently displayed on the HEX display.

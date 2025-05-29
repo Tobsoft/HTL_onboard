@@ -541,7 +541,7 @@ int HTL_onboard::getHexMode() {
 void HTL_onboard::setHexNumber(int number) {
     switch (HEX_mode) {
         case HEX_MODE_HEX:
-            hexNumber = constrain(number, -15, 15);
+            hexNumber = constrain(number, -0x1F, 0x1F);
             break;
         case HEX_MODE_DEC:
             hexNumber = constrain(number, -19, 19);
