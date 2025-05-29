@@ -213,7 +213,7 @@ The `HTL_onboard` class provides control over various onboard hardware component
   - Initializes the library and sets up pin modes for all necessary pins.
 
 - `void writeHex(int8_t hexNumber)`
-  - Writes a hexadecimal number (-15 to 15) to the HEX display.
+  - Writes a hexadecimal number (-0x1F to 0x1F) to the HEX display.
 
 - `void writeInt(int8_t intNumber)`
   - Writes an integer (-19 to 19) to the HEX display.

@@ -201,7 +201,7 @@ void HTL_onboard::writeHex(int8_t hexNumber) {
     setMode(MODE_HEX, true);
     setHexMode(HEX_MODE_HEX);
 
-    if (hexNumber < -15 || hexNumber > 15) {
+    if (hexNumber < -0x1F || hexNumber > 0x1F) {
         return;  // Out of range
     }
 
@@ -214,8 +214,15 @@ void HTL_onboard::writeHex(int8_t hexNumber) {
         digitalWrite(pinMapping[7], HIGH);
     }
 
-    digitalWrite(pinMapping[8], HIGH);
-    digitalWrite(pinMapping[9], HIGH);
+    if (hexNumber > 0x0F) {
+        digitalWrite(pinMapping[8], LOW);
+        digitalWrite(pinMapping[9], LOW);
+        hexNumber -= 0x10;
+    }
+    else {
+        digitalWrite(pinMapping[8], HIGH);
+        digitalWrite(pinMapping[9], HIGH);
+    }
 
     uint8_t value = segmentMap[hexNumber];
     setPins(value);
@@ -440,9 +447,9 @@ void HTL_onboard::updateMultiplex() {
         int nextMode = currentMode;
         do {
             nextMode += 1;
-	    if (nextMode > 2) {
-		nextMode = 0;
-	    }
+	        if (nextMode > 2) {
+		        nextMode = 0;
+	        }
         } while (!modesActive[nextMode]);
 
         // Turn off all displays before switching

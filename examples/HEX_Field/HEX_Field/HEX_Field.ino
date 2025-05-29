@@ -8,8 +8,8 @@ void setup() {
 }
 
 void loop() {
-    // Display hexadecimal numbers from -F to F
-    for (int i = -15; i <= 15; i++) {
+    // Display hexadecimal numbers from -1F to 1F
+    for (int i = -0x1F; i <= 0x1F; i++) {
         hexPanel.writeHex(i);
         delay(500); // Delay for 0.5 seconds
     }

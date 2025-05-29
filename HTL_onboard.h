@@ -79,7 +79,7 @@ public:
     /**
      * @brief Writes a hexadecimal number to the HEX display.
      * 
-     * @param hexNumber The hexadecimal number to display (-15 to 15).
+     * @param hexNumber The hexadecimal number to display (-1F to 1F).
      */
     void writeHex(int8_t hexNumber);
 

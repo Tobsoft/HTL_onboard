@@ -187,7 +187,7 @@ Die Klasse "HTL_onboard" ermöglicht die Steuerung verschiedener Onboard-Hardwar
   - Initialisiert die Bibliothek und richtet Pin-Modi für alle notwendigen Pins ein.
 
 - `void writeHex(int8_t hexNumber)`
-  - Schreibt eine hexadezimale Zahl (-15 bis 15) in die HEX-Anzeige.
+  - Schreibt eine hexadezimale Zahl (-0x1F bis 0x1F) in die HEX-Anzeige.
 
 - `void writeInt(int8_t intZahl)`
   - Schreibt eine Ganzzahl (-19 bis 19) in die HEX-Anzeige.
